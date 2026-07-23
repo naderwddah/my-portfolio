@@ -1,0 +1,3901 @@
+<!doctype html>
+<html lang="en" data-theme="light" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nader Al-Qayadi | Full Stack Software Engineer</title>
+
+    <!-- Tailwind CSS (CDN) -->
+
+    <!-- ===== Google Fonts (عربية + إنجليزية) ===== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- الخطوط العربية: Cairo (الرئيسي) + Tajawal + Almarai -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Tajawal:wght@300;400;500;700;800&family=Almarai:wght@300;400;700&family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- FontAwesome for Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- ملف الأنماط المخصص -->
+    <script type="module" crossorigin src="./assets/main-rXkT3MRG.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/scripts-DLp0exuD.js">
+    <link rel="stylesheet" crossorigin href="./assets/scripts-DkzWFHIl.css">
+  </head>
+
+  <body class="">
+    <!-- ============================================================ -->
+    <!--                        HEADER / NAV                           -->
+    <!-- ============================================================ -->
+    <!-- ===== HEADER ===== -->
+    <header
+      id="mainHeader"
+      class="fixed top-4 left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] max-w-7xl z-50 glass-panel rounded-2xl px-4 md:px-8 py-3 flex items-center justify-between transition-all duration-300"
+    >
+      <!-- ===== LEFT: Theme Toggle + Language Toggle + Logo ===== -->
+      <div class="flex items-center gap-2 md:gap-3">
+        <!-- Theme Toggle Button -->
+        <button
+          id="themeToggle"
+          class="w-9 h-9 md:w-10 md:h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-zinc-400 hover:text-white hover:border-white/30 transition-all duration-300 group"
+          aria-label="Toggle theme"
+          title="Toggle theme"
+        >
+          <i
+            id="themeIcon"
+            class="fa-solid fa-moon text-sm md:text-base group-hover:scale-110 transition-transform"
+          ></i>
+        </button>
+
+        <!-- Language Toggle Button – اختصار الحرف الأول فقط -->
+        <button
+          id="langToggle"
+          class="w-9 h-9 md:w-10 md:h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-sm md:text-base font-bold text-zinc-300 hover:text-white hover:border-white/30 transition-all duration-300"
+          aria-label="Toggle language"
+          title="تبديل اللغة"
+        >
+          ع
+        </button>
+
+        <!-- Name / Logo Text -->
+        <a
+          href="#hero"
+          class="text-base md:text-xl font-extrabold text-white flex items-center gap-2 group ml-0.5"
+        >
+          <span class="hidden sm:inline text-zinc-200 font-bold tracking-tight"
+            >Nader Al-Qayadi</span
+          >
+        </a>
+      </div>
+
+      <!-- ===== Desktop Navigation ===== -->
+      <nav class="hidden md:flex items-center gap-0.5 lg:gap-1">
+        <a href="#about" class="nav-link-custom">About</a>
+        <a href="#projects" class="nav-link-custom">Projects</a>
+        <a href="#skills" class="nav-link-custom">Skills</a>
+        <a href="#journey" class="nav-link-custom">Experience</a>
+        <a href="#services" class="nav-link-custom">Services</a>
+        <a href="#achievements" class="nav-link-custom">Certificates</a>
+        <a href="#contact" class="nav-link-custom">Contact</a>
+      </nav>
+
+      <!-- ===== RIGHT: Actions ===== -->
+      <div class="flex items-center gap-2 md:gap-3">
+        <!-- "Let's Talk" Button -->
+        <a
+          href="#contact"
+          class="hidden sm:inline-flex px-4 md:px-5 py-2 md:py-2.5 bg-gradient-to-r from-brand-accent1 to-brand-accent2 rounded-full text-xs md:text-sm font-semibold text-white hover:shadow-[0_0_25px_rgba(99,102,241,0.5)] hover:-translate-y-0.5 transition-all duration-300"
+        >
+          Let's Talk
+          <i
+            class="fa-solid fa-arrow-right ml-1.5 md:ml-2 text-[10px] md:text-xs"
+          ></i>
+        </a>
+
+        <!-- Mobile Menu Toggle -->
+        <button
+          id="mobileMenuToggle"
+          class="md:hidden text-white text-xl md:text-2xl w-9 h-9 md:w-10 md:h-10 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all flex items-center justify-center"
+          aria-label="Toggle menu"
+          aria-expanded="false"
+        >
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- ===== MOBILE MENU (Fullscreen Overlay) ===== -->
+    <div
+      id="mobileMenu"
+      class="fixed inset-0 z-[999] hidden flex-col items-center justify-center gap-6 text-2xl font-semibold text-white bg-black/95 backdrop-blur-xl"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Mobile Navigation"
+    >
+      <button
+        id="mobileMenuClose"
+        class="absolute top-6 right-6 text-4xl text-zinc-400 hover:text-white transition w-12 h-12 flex items-center justify-center rounded-full hover:bg-white/10"
+        aria-label="Close menu"
+      >
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <nav class="flex flex-col items-center gap-6">
+        <a
+          href="#about"
+          class="hover:text-brand-accent1 transition-colors text-3xl"
+          data-close-menu
+          >About</a
+        >
+        <a
+          href="#projects"
+          class="hover:text-brand-accent1 transition-colors text-3xl"
+          data-close-menu
+          >Projects</a
+        >
+        <a
+          href="#skills"
+          class="hover:text-brand-accent1 transition-colors text-3xl"
+          data-close-menu
+          >Skills</a
+        >
+        <a
+          href="#journey"
+          class="hover:text-brand-accent1 transition-colors text-3xl"
+          data-close-menu
+          >Experience</a
+        >
+        <a
+          href="#services"
+          class="hover:text-brand-accent1 transition-colors text-3xl"
+          data-close-menu
+          >Services</a
+        >
+        <a
+          href="#achievements"
+          class="hover:text-brand-accent1 transition-colors text-3xl"
+          data-close-menu
+          >Certificates</a
+        >
+        <a
+          href="#contact"
+          class="hover:text-brand-accent1 transition-colors text-3xl"
+          data-close-menu
+          >Contact</a
+        >
+        <a
+          href="#contact"
+          class="mt-4 px-8 py-4 bg-gradient-to-r from-brand-accent1 to-brand-accent2 rounded-full text-base font-bold shadow-[0_0_30px_rgba(99,102,241,0.3)] hover:shadow-[0_0_40px_rgba(168,85,247,0.5)] transition-all"
+          data-close-menu
+        >
+          Let's Talk
+        </a>
+      </nav>
+    </div>
+    <!--! ============================================================ -->
+    <!--                        HERO SECTION                            -->
+    <!-- !============================================================ -->
+    <section
+      id="hero"
+      class="relative min-h-screen flex flex-col items-center justify-center px-6 pt-24 pb-4 mx-auto max-w-7xl"
+    >
+      <!-- Aurora Background -->
+      <div class="aurora-bg">
+        <div class="aurora-blob blob-1"></div>
+        <div class="aurora-blob blob-2"></div>
+        <div class="aurora-blob blob-3"></div>
+        <div
+          class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+PHBhdGggZD0iTTAgMGg0MHY0MEgweiIgZmlsbD0ibm9uZSIvPjxwYXRoIGQ9Ik0wIDEwaDQwTTAgMjBoNDBNMCAzMGg0ME0xMCAwdjQwTTIwIDB2NDBNMzAgMHY0MCIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDMpIiBzdHJva2Utd2lkdGg9IjEiLz48L3N2Zz4=')] opacity-50 mix-blend-overlay"
+        ></div>
+      </div>
+
+      <!-- ============================================================ -->
+      <!-- ===== البادجات الطائرة (المشكلة 8: كبيرة = مجالات، صغيرة = تقنيات) ===== -->
+      <!-- ============================================================ -->
+      <div class="parallax-layer" id="parallaxLayer">
+        <!-- ===== بادجات المجالات (كبيرة) ===== -->
+        <div
+          class="tech-badge glass-badge animate-float"
+          data-speed="0.03"
+          style="top: 5%; left: 48%"
+        >
+          <i class="fa-solid fa-layer-group text-emerald-400"></i> Full Stack
+        </div>
+        <div
+          class="tech-badge glass-badge animate-float-delayed"
+          data-speed="-0.05"
+          style="top: 28%; left: 55%"
+        >
+          <i class="fa-solid fa-microchip text-cyan-400"></i> IoT Systems
+        </div>
+        <div
+          class="tech-badge glass-badge animate-float"
+          data-speed="0.07"
+          style="bottom: 42%; right: 35%"
+        >
+          <i class="fa-solid fa-building text-amber-400"></i> Business
+          Automation
+        </div>
+        <div
+          class="tech-badge glass-badge animate-float-delayed"
+          data-speed="-0.06"
+          style="bottom: 8%; left: 38%"
+        >
+          <i class="fa-solid fa-industry text-purple-400"></i> Enterprise
+          Software
+        </div>
+
+        <!-- ===== بادجات التقنيات (صغيرة) ===== -->
+        <div
+          class="tech-badge glass-badge animate-float"
+          data-speed="0.05"
+          style="top: 15%; left: 8%"
+        >
+          <i class="fa-brands fa-html5 text-orange-500"></i> HTML5
+        </div>
+        <div
+          class="tech-badge glass-badge animate-float-delayed"
+          data-speed="-0.04"
+          style="top: 25%; right: 10%"
+        >
+          <i class="fa-brands fa-css3-alt text-blue-500"></i> CSS3
+        </div>
+        <div
+          class="tech-badge glass-badge animate-float"
+          data-speed="-0.03"
+          style="top: 60%; right: 6%"
+        >
+          <i class="fa-brands fa-js text-yellow-400"></i> JavaScript
+        </div>
+        <div
+          class="tech-badge glass-badge animate-float-delayed"
+          data-speed="0.08"
+          style="top: 75%; left: 12%"
+        >
+          <i class="fa-brands fa-php text-indigo-400"></i> PHP
+        </div>
+        <div
+          class="tech-badge glass-badge animate-float"
+          data-speed="-0.07"
+          style="top: 10%; right: 22%"
+        >
+          <i class="fa-brands fa-flutter text-cyan-500"></i> Flutter
+        </div>
+        <div
+          class="tech-badge glass-badge animate-float-delayed"
+          data-speed="0.04"
+          style="bottom: 22%; left: 22%"
+        >
+          <span class="font-bold text-purple-500">C#</span>
+        </div>
+        <div
+          class="tech-badge glass-badge animate-float"
+          data-speed="-0.05"
+          style="bottom: 15%; right: 18%"
+        >
+          <i class="fa-solid fa-database text-blue-400"></i> MySQL
+        </div>
+        <div
+          class="tech-badge glass-badge animate-float"
+          data-speed="0.06"
+          style="top: 35%; left: 18%"
+        >
+          <i class="fa-brands fa-docker text-blue-500"></i> Docker
+        </div>
+        <div
+          class="tech-badge glass-badge animate-float"
+          data-speed="-0.04"
+          style="top: 40%; right: 20%"
+        >
+          <i class="fa-brands fa-git-alt text-orange-600"></i> Git
+        </div>
+        <div
+          class="tech-badge glass-badge animate-float"
+          data-speed="-0.06"
+          style="top: 80%; right: 32%"
+        >
+          <i class="fa-solid fa-microchip text-slate-300"></i> IoT
+        </div>
+      </div>
+
+      <!-- Hero Content -->
+      <div
+        class="relative z-20 w-full max-w-3xl flex flex-col items-center text-center pb-20 md:pb-24"
+      >
+        <!-- ===== الصورة الشخصية (مع حلقة دوارة) ===== -->
+        <div
+          class="relative group cursor-pointer mb-2 profile-image-container"
+          id="profileImageContainer"
+        >
+          <!-- حلقة دوارة خارجية (المشكلة 9) -->
+          <div
+            class="absolute -inset-4 rounded-full border border-white/10 animate-spin-slow pointer-events-none"
+            style="animation-duration: 25s"
+          ></div>
+          <div
+            class="absolute -inset-7 rounded-full border border-white/5 animate-spin-slow pointer-events-none"
+            style="animation-duration: 20s; animation-direction: reverse"
+          ></div>
+
+          <!-- الهالة الخلفية -->
+          <div
+            class="absolute inset-0 bg-gradient-to-r from-brand-accent1 via-brand-accent2 to-brand-accent4 rounded-full blur-md opacity-70 group-hover:opacity-100 transition duration-500 group-hover:scale-110"
+          ></div>
+
+          <!-- حاوية الصورة -->
+          <div
+            class="relative w-44 h-44 md:w-56 md:h-56 rounded-full p-1 bg-brand-900 border border-white/10 z-10 overflow-hidden flex items-center justify-center profile-img-inner"
+          >
+            <img
+              src="./assets/1-Bm5kfj7_.png"
+              alt="Nader Al-Qayadi looking forward"
+              class="w-full h-full object-cover rounded-full profile-img-front"
+              onerror="
+                this.style.display = 'none';
+                document.getElementById('fallbackIcon').style.display = 'flex';
+              "
+            />
+            <img
+              src="./assets/2-ByoKH-YA.png"
+              alt="Nader Al-Qayadi looking left"
+              class="w-full h-full object-cover rounded-full profile-img-left"
+              onerror="this.style.display = 'none'"
+            />
+            <div
+              class="absolute inset-0 flex items-center justify-center bg-brand-800 rounded-full text-5xl text-brand-accent1"
+              style="display: none"
+              id="fallbackIcon"
+            >
+              <i class="fa-solid fa-code"></i>
+            </div>
+          </div>
+
+          <!-- نقطة الحالة -->
+          <div
+            class="absolute bottom-1 right-1 w-6 h-6 bg-green-500 border-4 border-brand-900 rounded-full z-20 shadow-[0_0_10px_rgba(34,197,94,0.7)]"
+          ></div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- ===== المشكلة 1 + 2: التسلسل الجديد (من أنت → ماذا تعمل → لماذا أنت مختلف) ===== -->
+        <!-- ============================================================ -->
+
+        <!-- السطر الأول: من أنت -->
+        <h1
+          class="text-3xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white drop-shadow-2xl"
+        >
+          Hi, I'm <span class="text-gradient">Nader Al-Qayadi</span>
+        </h1>
+
+        <!-- السطر الثاني: ماذا تعمل + شارة التميز (المشكلة 12) -->
+        <div class="flex flex-wrap items-center justify-center gap-3 mt-3">
+          <span
+            class="px-5 py-2 rounded-full bg-white/5 border border-white/10 text-sm md:text-base font-semibold text-zinc-200 flex items-center gap-2"
+          >
+            <i class="fa-solid fa-bolt text-brand-accent1"></i> Full Stack
+            Software Engineer
+          </span>
+          <!-- شارة التميز (المشكلة 12) -->
+          <span
+            class="px-4 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-xs font-medium text-amber-400 flex items-center gap-2"
+          >
+            <i class="fa-solid fa-trophy"></i> Best Graduation Project 2025
+          </span>
+          <span
+            class="px-4 py-1.5 rounded-full bg-brand-accent2/10 border border-brand-accent2/20 text-xs font-medium text-brand-accent2 flex items-center gap-2"
+          >
+            <i class="fa-solid fa-certificate"></i> Google Certified
+          </span>
+        </div>
+
+        <!-- السطر الثالث: لماذا أنت مختلف (التخصص) -->
+        <div class="flex flex-wrap items-center justify-center gap-2 mt-1">
+          <span
+            class="px-4 py-1.5 rounded-full bg-brand-accent4/10 border border-brand-accent4/20 text-sm font-medium text-brand-accent4 flex items-center gap-2"
+          >
+            <i class="fa-solid fa-microchip"></i> IoT Integration
+          </span>
+          <span
+            class="px-4 py-1.5 rounded-full bg-pink-500/10 border border-pink-500/20 text-sm font-medium text-pink-400 flex items-center gap-2"
+          >
+            <i class="fa-solid fa-robot"></i> Smart Systems
+          </span>
+          <span
+            class="px-4 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-sm font-medium text-indigo-400 flex items-center gap-2"
+          >
+            <i class="fa-solid fa-server"></i> Backend Architecture
+          </span>
+        </div>
+
+        <!-- ===== شارة التوفر ===== -->
+        <div class="flex items-center gap-3 mt-4">
+          <span class="relative flex h-3 w-3">
+            <span
+              class="animate-pulse-glow absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"
+            ></span>
+            <span
+              class="relative inline-flex rounded-full h-3 w-3 bg-green-500"
+            ></span>
+          </span>
+          <span class="text-sm font-medium text-zinc-400 tracking-wide"
+            >Available for new projects · Q3 2026</span
+          >
+        </div>
+
+        <!-- ===== السطر الرابع: الوصف مع نتيجة ملموسة (المشكلة 3) ===== -->
+        <p
+          class="text-zinc-300 text-base md:text-lg max-w-2xl mx-auto leading-relaxed mt-5"
+        >
+          I design and build scalable software solutions across
+          <strong class="text-white">Web, Mobile, Desktop and IoT</strong>,
+          transforming complex business requirements into reliable software that
+          <strong class="text-white"
+            >improves business operations, reduces manual work, and delivers
+            measurable results</strong
+          >.
+        </p>
+
+        <!-- ===== Typing Effect (يبقى كما هو) ===== -->
+        <h2
+          class="text-xl md:text-2xl font-semibold text-zinc-400 mt-4 h-[36px] md:h-[44px]"
+        >
+          <span class="text-zinc-300">Building</span>
+          <span class="text-gradient-accent font-bold" id="typing-text"
+            >Enterprise Web Applications</span
+          >
+          <span class="typing-cursor"></span>
+        </h2>
+
+        <!-- ===== الأزرار ===== -->
+        <div
+          class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-6 w-full sm:w-auto"
+        >
+          <a
+            href="#projects"
+            class="btn-primary w-full sm:w-auto px-8 py-4 rounded-full font-semibold text-white shadow-[0_0_20px_rgba(99,102,241,0.4)] hover:shadow-[0_0_30px_rgba(168,85,247,0.6)] transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2"
+          >
+            Explore My Work
+            <i class="fa-solid fa-arrow-right text-sm"></i>
+          </a>
+          <a
+            href="./assets/cv-nader-alqayadi.pdf"
+            download
+            class="btn-secondary w-full sm:w-auto px-8 py-4 rounded-full font-medium text-zinc-300 hover:text-white flex items-center justify-center gap-2 group"
+          >
+            <i
+              class="fa-regular fa-file-pdf text-lg group-hover:animate-bounce-subtle"
+            ></i>
+            Download Resume (PDF)
+            <span class="text-xs text-zinc-500 font-normal">· 2.4 MB</span>
+          </a>
+        </div>
+
+        <!-- ===== سطر ATS تحت زر التحميل (المشكلة 10) ===== -->
+        <p class="text-[10px] text-zinc-500 tracking-wider uppercase mt-1.5">
+          <i class="fa-regular fa-circle-check text-green-400 mr-1"></i> ATS
+          Friendly PDF
+        </p>
+
+        <!-- ============================================================ -->
+        <!-- ===== شريط الإحصائيات (المشكلة 7: استبدال Tech Stack) ===== -->
+        <!-- ============================================================ -->
+        <div
+          class="grid grid-cols-2 md:grid-cols-4 gap-3 w-full max-w-2xl mt-8"
+        >
+          <div
+            class="glass-card p-3 md:p-4 text-center border-white/5 hover:border-brand-accent1/30 transition-all"
+          >
+            <div
+              class="text-2xl md:text-3xl font-extrabold text-white flex items-center justify-center gap-1.5"
+            >
+              <span>20</span><span class="text-brand-accent1">+</span>
+            </div>
+            <p
+              class="text-xs font-medium text-zinc-400 tracking-wider uppercase"
+            >
+              Projects Delivered
+            </p>
+          </div>
+          <div
+            class="glass-card p-3 md:p-4 text-center border-white/5 hover:border-brand-accent2/30 transition-all"
+          >
+            <div
+              class="text-2xl md:text-3xl font-extrabold text-white flex items-center justify-center gap-1.5"
+            >
+              <span>10</span><span class="text-brand-accent2">+</span>
+            </div>
+            <p
+              class="text-xs font-medium text-zinc-400 tracking-wider uppercase"
+            >
+              Mobile Apps
+            </p>
+          </div>
+          <div
+            class="glass-card p-3 md:p-4 text-center border-white/5 hover:border-amber-400/30 transition-all"
+          >
+            <div
+              class="text-2xl md:text-3xl font-extrabold text-amber-400 flex items-center justify-center gap-1.5"
+            >
+              <i class="fa-solid fa-certificate text-lg"></i> <span>3</span>
+            </div>
+            <p
+              class="text-xs font-medium text-zinc-400 tracking-wider uppercase"
+            >
+              Certifications
+            </p>
+          </div>
+          <div
+            class="glass-card p-3 md:p-4 text-center border-white/5 hover:border-green-400/30 transition-all relative overflow-hidden"
+          >
+            <div
+              class="absolute inset-0 bg-gradient-to-r from-green-500/5 to-amber-400/5 opacity-0 hover:opacity-100 transition"
+            ></div>
+            <div
+              class="text-2xl md:text-3xl font-extrabold text-green-400 flex items-center justify-center gap-1.5 relative z-10"
+            >
+              <i class="fa-solid fa-trophy text-lg"></i> <span>1st</span>
+            </div>
+            <p
+              class="text-xs font-medium text-zinc-400 tracking-wider uppercase relative z-10"
+            >
+              Graduation Project 2025
+            </p>
+          </div>
+        </div>
+
+        <!-- ===== وسائل التواصل الاجتماعي ===== -->
+        <div class="flex flex-wrap items-center justify-center gap-3 pt-8 mb-2">
+          <a
+            href="https://github.com/naderwddah"
+            target="_blank"
+            class="btn-glass w-12 h-12 rounded-xl flex items-center justify-center text-zinc-400 hover:text-white hover:border-white/30 transition-all group relative"
+            aria-label="GitHub"
+            title="GitHub"
+          >
+            <i
+              class="fa-brands fa-github text-xl group-hover:scale-110 transition-transform"
+            ></i>
+            <span
+              class="absolute -top-10 left-1/2 -translate-x-1/2 bg-brand-800 text-xs text-zinc-300 px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition whitespace-nowrap border border-white/10"
+              >GitHub</span
+            >
+          </a>
+          <a
+            href="https://www.linkedin.com/in/naderwaddah/"
+            target="_blank"
+            class="btn-glass w-12 h-12 rounded-xl flex items-center justify-center text-zinc-400 hover:text-[#0a66c2] hover:border-[#0a66c2]/30 transition-all group relative"
+            aria-label="LinkedIn"
+            title="LinkedIn"
+          >
+            <i
+              class="fa-brands fa-linkedin text-xl group-hover:scale-110 transition-transform"
+            ></i>
+            <span
+              class="absolute -top-10 left-1/2 -translate-x-1/2 bg-brand-800 text-xs text-zinc-300 px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition whitespace-nowrap border border-white/10"
+              >LinkedIn</span
+            >
+          </a>
+          <a
+            href="https://wa.me/966560889123"
+            target="_blank"
+            class="btn-glass w-12 h-12 rounded-xl flex items-center justify-center text-zinc-400 hover:text-[#25D366] hover:border-[#25D366]/30 transition-all group relative"
+            aria-label="WhatsApp"
+            title="WhatsApp"
+          >
+            <i
+              class="fa-brands fa-whatsapp text-xl group-hover:scale-110 transition-transform"
+            ></i>
+            <span
+              class="absolute -top-10 left-1/2 -translate-x-1/2 bg-brand-800 text-xs text-zinc-300 px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition whitespace-nowrap border border-white/10"
+              >WhatsApp</span
+            >
+          </a>
+          <a
+            href="mailto:naderwadah71@gmail.com"
+            class="btn-glass w-12 h-12 rounded-xl flex items-center justify-center text-zinc-400 hover:text-[#ea4335] hover:border-[#ea4335]/30 transition-all group relative"
+            aria-label="Email"
+            title="Email"
+          >
+            <i
+              class="fa-solid fa-envelope text-xl group-hover:scale-110 transition-transform"
+            ></i>
+            <span
+              class="absolute -top-10 left-1/2 -translate-x-1/2 bg-brand-800 text-xs text-zinc-300 px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition whitespace-nowrap border border-white/10"
+              >Email</span
+            >
+          </a>
+        </div>
+      </div>
+
+      <!-- ===== Scroll Indicator ===== -->
+      <div
+        class="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-1 opacity-60 hover:opacity-100 transition-opacity cursor-pointer z-20"
+      >
+        <span
+          class="text-[10px] font-medium text-zinc-500 uppercase tracking-[0.15em]"
+          >Scroll</span
+        >
+        <div
+          class="scroll-mouse w-5 h-8 border-2 border-zinc-500/50 rounded-xl flex items-start justify-center pt-1.5"
+        >
+          <div
+            class="scroll-wheel w-1 h-1.5 bg-zinc-400 rounded-full animate-bounce"
+          ></div>
+        </div>
+      </div>
+    </section>
+    <!--! ============================================================ -->
+    <!--                     SECTION DIVIDER                           -->
+    <!-- !============================================================ -->
+    <div class="section-divider"></div>
+
+    <!--! ============================================================ -->
+    <!--                       ABOUT SECTION                           -->
+    <!-- !============================================================ -->
+    <section
+      id="about"
+      class="relative py-24 md:py-32 w-full min-h-screen overflow-hidden"
+    >
+      <!-- Ambient Background Lights -->
+      <div class="ambient-light light-1"></div>
+      <div class="ambient-light light-2"></div>
+      <div class="ambient-light light-3"></div>
+      <div
+        class="absolute inset-0 bg-grid opacity-50 mix-blend-overlay pointer-events-none"
+      ></div>
+
+      <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
+        <!-- ===== Section Header ===== -->
+        <div
+          class="flex flex-col items-center justify-center text-center mb-20 reveal"
+        >
+          <div
+            class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-badge mb-6"
+          >
+            <span
+              class="w-2 h-2 rounded-full bg-brand-accent1 animate-pulse"
+            ></span>
+            <span
+              class="text-xs font-semibold uppercase tracking-widest text-zinc-300"
+              >About Me</span
+            >
+          </div>
+          <h2
+            class="text-4xl md:text-6xl font-bold tracking-tight text-white mb-4"
+          >
+            Who I Am & <span class="text-gradient-accent">My Journey</span>
+          </h2>
+          <p class="max-w-2xl text-zinc-400 text-lg">
+            From web applications to IoT systems — here's how I became a
+            full-stack engineer who builds complete, integrated solutions.
+          </p>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- ===== Part 1: Profile + Mini Info ===== -->
+        <!-- ============================================================ -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 mb-20">
+          <!-- Left Column: Profile Image -->
+          <div class="lg:col-span-5 flex flex-col gap-6 reveal delay-100">
+            <!-- صورة شخصية -->
+            <div
+              class="relative w-full aspect-square md:aspect-video lg:aspect-square rounded-[2rem] glass-card overflow-hidden group"
+            >
+              <div
+                class="absolute inset-0 bg-gradient-to-br from-brand-accent1/30 via-brand-accent2/20 to-brand-accent4/30 opacity-0 group-hover:opacity-100 transition-opacity duration-700"
+              ></div>
+              <div
+                class="relative z-10 w-full h-full border border-white/10 rounded-[2rem] bg-brand-900/50 flex flex-col items-center justify-center overflow-hidden"
+              >
+                <img
+                  src="./assets/2-ByoKH-YA.png"
+                  alt="Nader Al-Qayadi - Full Stack & IoT Engineer"
+                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  onerror="
+                    this.style.display = 'none';
+                    this.nextElementSibling.style.display = 'flex';
+                  "
+                />
+                <div
+                  class="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-brand-900/80"
+                  style="display: none"
+                >
+                  <i
+                    class="fa-solid fa-user text-7xl text-brand-accent2 opacity-50"
+                  ></i>
+                  <div class="text-center">
+                    <h3 class="text-xl font-bold text-white">
+                      Nader Al-Qayadi
+                    </h3>
+                    <p class="text-zinc-400 text-sm">
+                      Software Engineer · IoT Systems
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-brand-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end justify-center p-6"
+                >
+                  <span
+                    class="text-sm font-medium text-white/80 tracking-wider flex items-center gap-2"
+                  >
+                    <i class="fa-solid fa-microchip"></i> IoT Systems · Full
+                    Stack
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Mini Info Grid -->
+            <div class="grid grid-cols-2 gap-4">
+              <div
+                class="glass-card p-5 flex flex-col gap-2 hover:border-brand-accent1/30 transition-all group"
+              >
+                <i
+                  class="fa-solid fa-graduation-cap text-brand-accent1 text-xl group-hover:scale-110 transition-transform"
+                ></i>
+                <span class="text-xs text-zinc-500 uppercase tracking-wider"
+                  >Education</span
+                >
+                <strong class="text-white text-sm"
+                  >BSc. Information Technology</strong
+                >
+                <span class="text-[10px] text-zinc-600"
+                  >Al-Hikma University · Expected Graduation • 2026</span
+                >
+              </div>
+              <div
+                class="glass-card p-5 flex flex-col gap-2 hover:border-brand-accent4/30 transition-all group"
+              >
+                <i
+                  class="fa-solid fa-location-dot text-brand-accent4 text-xl group-hover:scale-110 transition-transform"
+                ></i>
+                <span class="text-xs text-zinc-500 uppercase tracking-wider"
+                  >Location</span
+                >
+                <strong class="text-white text-sm"
+                  >Buraydah, Saudi Arabia</strong
+                >
+                <span class="text-[10px] text-zinc-600"
+                  >🇸🇦 · Open to Remote</span
+                >
+              </div>
+              <div
+                class="glass-card p-5 flex flex-col gap-2 hover:border-brand-accent2/30 transition-all group"
+              >
+                <i
+                  class="fa-solid fa-language text-brand-accent2 text-xl group-hover:scale-110 transition-transform"
+                ></i>
+                <span class="text-xs text-zinc-500 uppercase tracking-wider"
+                  >Languages</span
+                >
+                <strong class="text-white text-sm">English · Arabic</strong>
+                <span class="text-[10px] text-zinc-600">
+                  Arabic (Native) English (Intermediate)
+                </span>
+              </div>
+              <div
+                class="glass-card p-5 flex flex-col gap-2 hover:border-green-500/30 transition-all group"
+              >
+                <i
+                  class="fa-solid fa-briefcase text-green-400 text-xl group-hover:scale-110 transition-transform"
+                ></i>
+                <span class="text-xs text-zinc-500 uppercase tracking-wider"
+                  >Status</span
+                >
+                <strong class="text-green-400 text-sm flex items-center gap-2">
+                  <span
+                    class="w-2 h-2 rounded-full bg-green-400 animate-pulse"
+                  ></span>
+                  Available
+                </strong>
+                <span class="text-[10px] text-zinc-600"
+                  >Open to opportunities</span
+                >
+              </div>
+            </div>
+
+            <!-- شارات الثقة (مختصرة) -->
+            <div class="flex flex-wrap gap-2 mt-1">
+              <span
+                class="px-3 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-[10px] font-medium text-amber-400 flex items-center gap-1.5"
+              >
+                <i class="fa-solid fa-trophy"></i> Best Graduation Project 2025
+              </span>
+              <span
+                class="px-3 py-1.5 rounded-full bg-brand-accent1/10 border border-brand-accent1/20 text-[10px] font-medium text-brand-accent1 flex items-center gap-1.5"
+              >
+                <i class="fa-solid fa-certificate"></i> Google Certified
+              </span>
+            </div>
+          </div>
+
+          <!-- ===== Right Column: التعريف المهني ===== -->
+          <div
+            class="lg:col-span-7 flex flex-col justify-center gap-5 reveal delay-200"
+          >
+            <!-- ===== العنوان ===== -->
+            <h3 class="text-3xl md:text-4xl font-bold text-white leading-tight">
+              I build integrated systems that <br class="hidden lg:block" />
+              <span class="text-gradient-accent"
+                >connect software with hardware.</span
+              >
+            </h3>
+
+            <!-- ===== القصة المختصرة (40% أقل) ===== -->
+            <div class="space-y-3">
+              <p class="text-zinc-300 leading-relaxed text-sm md:text-base">
+                I'm a
+                <span class="text-white font-medium">Software Engineer</span>
+                who started with web development, then expanded into
+                <span class="text-white font-medium">Flutter</span> for mobile,
+                <span class="text-white font-medium">C#</span> for desktop, and
+                <span class="text-white font-medium">PHP with MySQL</span> for
+                backend systems.
+              </p>
+              <p class="text-zinc-300 leading-relaxed text-sm md:text-base">
+                The natural next step was
+                <span class="text-cyan-400 font-medium">IoT</span> — connecting
+                software to microcontrollers like
+                <span class="text-white font-medium">ESP32</span> and building
+                complete ecosystems where web, mobile, desktop, and hardware
+                work together seamlessly.
+              </p>
+              <p class="text-zinc-300 leading-relaxed text-sm md:text-base">
+                Today, I focus on creating
+                <span class="text-white font-medium"
+                  >business automation solutions</span
+                >
+                and
+                <span class="text-white font-medium">smart systems</span> that
+                solve real-world problems — not just writing code, but
+                delivering measurable results.
+              </p>
+            </div>
+
+            <!-- ===== ما يميزه ===== -->
+            <div class="grid grid-cols-3 gap-3 mt-2">
+              <div
+                class="bg-white/5 border border-white/10 rounded-xl p-3 text-center hover:border-brand-accent1/30 transition-all"
+              >
+                <i
+                  class="fa-solid fa-microchip text-brand-accent1 text-lg mb-1"
+                ></i>
+                <p class="text-[10px] font-medium text-zinc-400">
+                  IoT Integration
+                </p>
+              </div>
+              <div
+                class="bg-white/5 border border-white/10 rounded-xl p-3 text-center hover:border-brand-accent4/30 transition-all"
+              >
+                <i
+                  class="fa-solid fa-layer-group text-brand-accent4 text-lg mb-1"
+                ></i>
+                <p class="text-[10px] font-medium text-zinc-400">Full Stack</p>
+              </div>
+              <div
+                class="bg-white/5 border border-white/10 rounded-xl p-3 text-center hover:border-amber-400/30 transition-all"
+              >
+                <i class="fa-solid fa-gear text-amber-400 text-lg mb-1"></i>
+                <p class="text-[10px] font-medium text-zinc-400">
+                  Business Automation
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- ===== Part 2: Smart Metering Project = نقطة التحول ===== -->
+        <!-- ============================================================ -->
+        <div class="reveal">
+          <div
+            class="relative glass-card p-8 md:p-10 border border-brand-accent1/20 bg-gradient-to-r from-brand-accent1/5 to-brand-accent2/5"
+          >
+            <div class="flex flex-col md:flex-row gap-6 md:gap-10 items-center">
+              <!-- أيقونة المشروع -->
+              <div class="flex-shrink-0">
+                <div
+                  class="w-20 h-20 md:w-24 md:h-24 rounded-2xl bg-gradient-to-br from-brand-accent1/20 to-brand-accent2/20 border border-brand-accent1/30 flex items-center justify-center"
+                >
+                  <i
+                    class="fa-solid fa-microchip text-3xl md:text-4xl text-brand-accent1"
+                  ></i>
+                </div>
+              </div>
+
+              <!-- المحتوى -->
+              <div class="flex-1 text-center md:text-right">
+                <div
+                  class="flex flex-wrap items-center justify-center md:justify-start gap-2 mb-2"
+                >
+                  <span
+                    class="px-2.5 py-0.5 text-[10px] font-bold bg-amber-500/20 text-amber-400 rounded-full border border-amber-500/20"
+                  >
+                    🏆 Best Graduation Project 2025
+                  </span>
+                  <span
+                    class="px-2.5 py-0.5 text-[10px] font-medium bg-white/5 text-zinc-400 rounded-full border border-white/10"
+                  >
+                    Flagship Project
+                  </span>
+                </div>
+                <h4 class="text-xl md:text-2xl font-bold text-white mb-2">
+                  Smart Metering System
+                </h4>
+                <p
+                  class="text-zinc-300 text-sm leading-relaxed max-w-2xl mx-auto md:mx-0"
+                >
+                  A complete IoT solution combining
+                  <span class="text-white font-medium">Web Dashboard</span>,
+                  <span class="text-white font-medium">Flutter Mobile App</span
+                  >,
+                  <span class="text-white font-medium">Desktop Management</span
+                  >, <span class="text-white font-medium">REST API</span>, and
+                  <span class="text-cyan-400 font-medium"
+                    >ESP32 hardware integration</span
+                  >
+                  — all connected through a unified system.
+                </p>
+                <div
+                  class="flex flex-wrap items-center justify-center md:justify-start gap-2 mt-3"
+                >
+                  <span
+                    class="px-2 py-0.5 text-[9px] font-medium bg-white/5 border border-white/10 rounded text-zinc-400"
+                    >Flutter</span
+                  >
+                  <span
+                    class="px-2 py-0.5 text-[9px] font-medium bg-white/5 border border-white/10 rounded text-zinc-400"
+                    >PHP</span
+                  >
+                  <span
+                    class="px-2 py-0.5 text-[9px] font-medium bg-white/5 border border-white/10 rounded text-zinc-400"
+                    >MySQL</span
+                  >
+                  <span
+                    class="px-2 py-0.5 text-[9px] font-medium bg-white/5 border border-white/10 rounded text-zinc-400"
+                    >REST API</span
+                  >
+                  <span
+                    class="px-2 py-0.5 text-[9px] font-medium bg-white/5 border border-white/10 rounded text-zinc-400"
+                    >ESP32</span
+                  >
+                  <span
+                    class="px-2 py-0.5 text-[9px] font-medium bg-white/5 border border-white/10 rounded text-zinc-400"
+                    >C#</span
+                  >
+                </div>
+              </div>
+
+              <!-- زر View Case Study -->
+              <div class="flex-shrink-0">
+                <a
+                  href="#projects"
+                  class="btn-glass px-5 py-2.5 rounded-full text-sm font-medium text-white flex items-center gap-2 whitespace-nowrap hover:border-brand-accent1/50"
+                >
+                  View Case Study
+                  <i class="fa-solid fa-arrow-right text-xs"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--! ============================================================ -->
+    <!--                  EXPERIENCE & JOURNEY SECTION                  -->
+    <!-- ! ============================================================ -->
+    <section
+      id="journey"
+      class="relative py-24 md:py-32 w-full min-h-screen overflow-hidden"
+    >
+      <!-- Ambient Background Lights -->
+      <div
+        class="ambient-glow"
+        style="
+          top: 10%;
+          right: -10%;
+          width: 50vw;
+          height: 50vw;
+          background: #6366f1;
+        "
+      ></div>
+      <div
+        class="ambient-glow"
+        style="
+          top: 40%;
+          left: -10%;
+          width: 40vw;
+          height: 40vw;
+          background: #a855f7;
+        "
+      ></div>
+      <div
+        class="ambient-glow"
+        style="
+          bottom: 0%;
+          right: 20%;
+          width: 45vw;
+          height: 45vw;
+          background: #06b6d4;
+        "
+      ></div>
+
+      <!-- Grid Texture Overlay -->
+      <div
+        class="absolute inset-0 bg-grid-subtle mix-blend-overlay pointer-events-none"
+      ></div>
+
+      <div class="relative z-10 max-w-6xl mx-auto px-6 lg:px-8">
+        <!-- Section Header -->
+        <div
+          class="flex flex-col items-center justify-center text-center mb-24 reveal"
+        >
+          <div
+            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-6"
+          >
+            <i class="fa-solid fa-route text-brand-accent1 text-xs"></i>
+            <span
+              class="text-xs font-semibold uppercase tracking-widest text-zinc-300"
+              >Professional Path</span
+            >
+          </div>
+          <h2
+            class="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-6"
+          >
+            Experience & <span class="text-gradient-accent">Journey</span>
+          </h2>
+          <p class="max-w-2xl text-zinc-400 text-lg leading-relaxed">
+            A timeline of my continuous growth — from academic foundation to
+            building complete, integrated systems across Web, Mobile, Desktop,
+            and IoT.
+          </p>
+        </div>
+
+        <!-- TIMELINE CONTAINER -->
+        <div class="relative w-full" id="timeline-container">
+          <!-- The Vertical Track line (Background) -->
+          <div
+            class="absolute left-[20px] md:left-1/2 md:-translate-x-1/2 top-0 bottom-0 w-[2px] bg-white/10 rounded-full"
+          ></div>
+
+          <!-- The Animated Progress Fill Line -->
+          <div
+            id="timeline-progress"
+            class="absolute left-[20px] md:left-1/2 md:-translate-x-1/2 top-0 w-[2px] bg-gradient-to-b from-brand-accent1 via-brand-accent2 to-brand-accent4 rounded-full"
+            style="height: 0%; transition: height 0.1s ease"
+          >
+            <div
+              class="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-4 bg-brand-accent4 rounded-full blur-[8px] opacity-70"
+            ></div>
+          </div>
+
+          <div class="space-y-12 md:space-y-24">
+            <!-- ============================================================ -->
+            <!-- Milestone 1: Education (Left Side) -->
+            <!-- ============================================================ -->
+            <div
+              class="timeline-item relative flex flex-col md:flex-row justify-between items-center w-full group"
+            >
+              <div
+                class="absolute left-[20px] md:left-1/2 -translate-x-1/2 timeline-dot"
+                style="--dot-color: #6366f1"
+              ></div>
+
+              <div
+                class="w-full pl-14 md:pl-0 md:w-[45%] md:pr-10 md:text-right reveal reveal-left"
+              >
+                <div
+                  class="glass-card"
+                  style="--card-glow: rgba(99, 102, 241, 0.1)"
+                >
+                  <span
+                    class="inline-block px-3 py-1 mb-4 text-xs font-bold text-brand-accent1 bg-brand-accent1/10 border border-brand-accent1/20 rounded-full"
+                    >2022 — Expected 2026</span
+                  >
+                  <h3 class="text-2xl font-bold text-white mb-2">
+                    BSc. Information Technology
+                  </h3>
+                  <h4 class="text-sm text-zinc-400 font-medium mb-4">
+                    Al-Hikma University
+                  </h4>
+                  <p class="text-zinc-400 text-sm leading-relaxed mb-6">
+                    Currently pursuing a degree in Information Technology with a
+                    focus on software engineering, database systems, and IoT.
+                    <span class="text-emerald-400 font-medium"
+                      >🏆 Awarded Best Graduation Project Award 2025</span
+                    >
+                    for the Smart Metering Management System.
+                  </p>
+                  <div class="flex flex-wrap gap-2 md:justify-end">
+                    <span
+                      class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-zinc-300"
+                      title="IT Fundamentals"
+                      ><i class="fa-solid fa-laptop"></i
+                    ></span>
+                    <span
+                      class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-zinc-300"
+                      title="Database"
+                      ><i class="fa-solid fa-database"></i
+                    ></span>
+                    <span
+                      class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-zinc-300"
+                      title="IoT"
+                      ><i class="fa-solid fa-microchip"></i
+                    ></span>
+                  </div>
+                </div>
+              </div>
+              <div class="hidden md:block md:w-[45%]"></div>
+            </div>
+
+            <!-- ============================================================ -->
+            <!-- Milestone 2: Frontend & UI Development (Right Side) -->
+            <!-- ============================================================ -->
+            <div
+              class="timeline-item relative flex flex-col md:flex-row justify-between items-center w-full group"
+            >
+              <div
+                class="absolute left-[20px] md:left-1/2 -translate-x-1/2 timeline-dot"
+                style="--dot-color: #06b6d4"
+              ></div>
+
+              <div class="hidden md:block md:w-[45%]"></div>
+
+              <div class="w-full pl-14 md:pl-10 md:w-[45%] reveal reveal-right">
+                <div
+                  class="glass-card"
+                  style="--card-glow: rgba(6, 182, 212, 0.1)"
+                >
+                  <span
+                    class="inline-block px-3 py-1 mb-4 text-xs font-bold text-brand-accent4 bg-brand-accent4/10 border border-brand-accent4/20 rounded-full"
+                    >2023 — 2024</span
+                  >
+                  <h3 class="text-2xl font-bold text-white mb-2">
+                    Frontend & UI Developer
+                  </h3>
+                  <h4 class="text-sm text-zinc-400 font-medium mb-4">
+                    Freelance
+                  </h4>
+                  <p class="text-zinc-400 text-sm leading-relaxed mb-6">
+                    Built pixel-perfect, responsive web interfaces using modern
+                    HTML, CSS, and JavaScript. Translated complex Figma designs
+                    into interactive experiences with high client satisfaction.
+                    Developed foundational skills for full-stack development and
+                    began integrating REST APIs into web clients.
+                  </p>
+                  <div class="flex flex-wrap gap-2">
+                    <span
+                      class="w-8 h-8 rounded-full bg-orange-500/10 flex items-center justify-center text-orange-500"
+                      ><i class="fa-brands fa-html5"></i
+                    ></span>
+                    <span
+                      class="w-8 h-8 rounded-full bg-blue-500/10 flex items-center justify-center text-blue-500"
+                      ><i class="fa-brands fa-css3-alt"></i
+                    ></span>
+                    <span
+                      class="w-8 h-8 rounded-full bg-yellow-400/10 flex items-center justify-center text-yellow-400"
+                      ><i class="fa-brands fa-js"></i
+                    ></span>
+                    <span
+                      class="w-8 h-8 rounded-full bg-sky-500/10 flex items-center justify-center text-sky-400"
+                      ><i class="fa-brands fa-figma"></i
+                    ></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ============================================================ -->
+            <!-- Milestone 3: Smart Metering System (Left Side - Highlight) -->
+            <!-- ============================================================ -->
+            <div
+              class="timeline-item relative flex flex-col md:flex-row justify-between items-center w-full group"
+            >
+              <!-- Pulse Ring for Highlight -->
+              <div
+                class="absolute left-[20px] md:left-1/2 -translate-x-1/2 w-8 h-8 bg-brand-accent2/20 rounded-full animate-ping z-0"
+              ></div>
+              <div
+                class="absolute left-[20px] md:left-1/2 -translate-x-1/2 timeline-dot"
+                style="--dot-color: #a855f7"
+              ></div>
+
+              <div
+                class="w-full pl-14 md:pl-0 md:w-[45%] md:pr-10 md:text-right reveal reveal-left"
+              >
+                <div
+                  class="glass-card highlight-card relative"
+                  style="--card-glow: rgba(168, 85, 247, 0.2)"
+                >
+                  <!-- Trophy Icon Decor -->
+                  <div
+                    class="absolute top-4 right-4 md:left-4 md:right-auto text-brand-accent2 opacity-20 text-6xl pointer-events-none -rotate-12 animate-float"
+                  >
+                    <i class="fa-solid fa-trophy"></i>
+                  </div>
+                  <span
+                    class="inline-flex items-center gap-1.5 px-3 py-1 mb-4 text-xs font-bold text-white bg-gradient-to-r from-amber-500 to-brand-accent2 rounded-full shadow-[0_0_15px_rgba(168,85,247,0.4)]"
+                  >
+                    <i class="fa-solid fa-medal"></i> Best Graduation Project
+                    Award 2025
+                  </span>
+                  <h3 class="text-2xl font-bold text-white mb-2">
+                    Smart Metering Management System
+                  </h3>
+                  <h4 class="text-sm text-amber-400 font-medium mb-4">
+                    Team Leader & Full Stack Developer
+                  </h4>
+                  <p class="text-zinc-400 text-sm leading-relaxed mb-6">
+                    Led a team to design and build a
+                    <span class="text-white font-medium"
+                      >complete IoT-integrated platform</span
+                    >
+                    that combines <span class="text-white">Web Dashboard</span>,
+                    <span class="text-white">Flutter Mobile App</span>,
+                    <span class="text-white">C# Desktop Application</span>,
+                    <span class="text-white">REST API</span>, and
+                    <span class="text-cyan-400 font-medium"
+                      >ESP32 hardware integration</span
+                    >
+                    into one unified ecosystem.
+                  </p>
+                  <div class="flex flex-wrap gap-2 md:justify-end">
+                    <span
+                      class="px-2 py-1 text-xs font-medium bg-brand-accent4/20 border border-brand-accent4/30 rounded text-brand-accent4"
+                      >Flutter</span
+                    >
+                    <span
+                      class="px-2 py-1 text-xs font-medium bg-brand-accent2/20 border border-brand-accent2/30 rounded text-brand-accent2"
+                      >REST API</span
+                    >
+                    <span
+                      class="px-2 py-1 text-xs font-medium bg-emerald-500/20 border border-emerald-500/30 rounded text-emerald-400"
+                      >ESP32</span
+                    >
+                    <span
+                      class="px-2 py-1 text-xs font-medium bg-brand-accent1/20 border border-brand-accent1/30 rounded text-brand-accent1"
+                      >C#</span
+                    >
+                  </div>
+                  <div
+                    class="mt-3 pt-3 border-t border-white/10 flex flex-wrap gap-2 md:justify-end"
+                  >
+                    <span
+                      class="text-[10px] text-amber-400/80 flex items-center gap-1.5"
+                    >
+                      <i class="fa-solid fa-check-circle text-[8px]"></i> 1st
+                      Place Award
+                    </span>
+                    <span
+                      class="text-[10px] text-green-400/80 flex items-center gap-1.5"
+                    >
+                      <i class="fa-solid fa-check-circle text-[8px]"></i> Full
+                      System Integration
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="hidden md:block md:w-[45%]"></div>
+            </div>
+
+            <!-- ============================================================ -->
+            <!-- Milestone 4: Freelance Full Stack Developer (Current - Right Side) -->
+            <!-- ============================================================ -->
+            <div
+              class="timeline-item relative flex flex-col md:flex-row justify-between items-center w-full group"
+            >
+              <div
+                class="absolute left-[20px] md:left-1/2 -translate-x-1/2 timeline-dot"
+                style="--dot-color: #ec4899"
+              ></div>
+
+              <div class="hidden md:block md:w-[45%]"></div>
+
+              <div class="w-full pl-14 md:pl-10 md:w-[45%] reveal reveal-right">
+                <div
+                  class="glass-card"
+                  style="--card-glow: rgba(236, 72, 153, 0.1)"
+                >
+                  <span
+                    class="inline-block px-3 py-1 mb-4 text-xs font-bold text-brand-accent3 bg-brand-accent3/10 border border-brand-accent3/20 rounded-full"
+                    >2025 — Present</span
+                  >
+                  <h3 class="text-2xl font-bold text-white mb-2">
+                    Freelance Full Stack Developer
+                  </h3>
+                  <h4
+                    class="text-sm text-green-400 font-medium mb-4 flex items-center gap-2"
+                  >
+                    <span
+                      class="w-2 h-2 rounded-full bg-green-400 animate-pulse"
+                    ></span>
+                    Current Position
+                  </h4>
+                  <p class="text-zinc-400 text-sm leading-relaxed mb-6">
+                    Building complete, integrated software solutions for clients
+                    across multiple domains. Specializing in
+                    <span class="text-white font-medium"
+                      >Full Stack Development</span
+                    >,
+                    <span class="text-cyan-400 font-medium"
+                      >IoT Integration</span
+                    >, and
+                    <span class="text-brand-accent4 font-medium"
+                      >Business Automation</span
+                    >. Projects include
+                    <span class="text-white">POS systems</span>,
+                    <span class="text-white">Rental management platforms</span>,
+                    <span class="text-white">mobile accounting apps</span>, and
+                    <span class="text-white">smart IoT solutions</span>.
+                  </p>
+                  <div class="flex flex-wrap gap-2">
+                    <span
+                      class="w-8 h-8 rounded-full bg-cyan-500/10 flex items-center justify-center text-cyan-400"
+                      title="Flutter"
+                      ><i class="fa-brands fa-flutter"></i
+                    ></span>
+                    <span
+                      class="w-8 h-8 rounded-full bg-indigo-500/10 flex items-center justify-center text-indigo-400"
+                      title="PHP"
+                      ><i class="fa-brands fa-php"></i
+                    ></span>
+                    <span
+                      class="w-8 h-8 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-400"
+                      title="IoT"
+                      ><i class="fa-solid fa-microchip"></i
+                    ></span>
+                    <span
+                      class="w-8 h-8 rounded-full bg-purple-500/10 flex items-center justify-center text-purple-400"
+                      title="C#"
+                      ><i class="fa-brands fa-microsoft"></i
+                    ></span>
+                    <span
+                      class="w-8 h-8 rounded-full bg-amber-500/10 flex items-center justify-center text-amber-400"
+                      title="MySQL"
+                      ><i class="fa-solid fa-database"></i
+                    ></span>
+                  </div>
+                  <div
+                    class="mt-3 flex flex-wrap gap-3 text-[10px] text-zinc-500"
+                  >
+                    <span class="flex items-center gap-1.5"
+                      >📱 Flutter Apps</span
+                    >
+                    <span class="flex items-center gap-1.5"
+                      >🌐 Web Platforms</span
+                    >
+                    <span class="flex items-center gap-1.5"
+                      >🖥 Desktop Software</span
+                    >
+                    <span class="flex items-center gap-1.5"
+                      >🔌 IoT Systems</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- "What's Next" Final Card -->
+        <!-- ============================================================ -->
+        <div class="mt-32 max-w-3xl mx-auto relative reveal">
+          <div
+            class="hidden md:block absolute -top-16 left-1/2 -translate-x-1/2 w-[2px] h-16 bg-gradient-to-b from-brand-accent4 to-transparent"
+          ></div>
+
+          <div
+            class="glass-card text-center p-10 md:p-14 border border-white/10 group relative overflow-hidden"
+            style="--card-glow: rgba(255, 255, 255, 0.1)"
+          >
+            <div
+              class="absolute inset-0 bg-gradient-to-r from-brand-accent1/10 via-brand-accent2/10 to-brand-accent4/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700"
+            ></div>
+
+            <div class="relative z-10">
+              <div
+                class="w-16 h-16 mx-auto bg-white/5 border border-white/10 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 shadow-[0_0_20px_rgba(255,255,255,0.05)]"
+              >
+                <i class="fa-solid fa-rocket text-2xl text-white"></i>
+              </div>
+              <h3 class="text-3xl font-bold text-white mb-4">What's Next?</h3>
+              <p
+                class="text-zinc-400 text-base leading-relaxed mb-8 max-w-2xl mx-auto"
+              >
+                I'm actively expanding into
+                <span class="text-white font-medium"
+                  >Cloud Native Architectures</span
+                >,
+                <span class="text-white font-medium">AI/ML integrations</span>,
+                and scaling
+                <span class="text-white font-medium">SaaS platforms</span>
+                globally. I'm always looking for the next complex problem to
+                solve — whether it's building a smart IoT system, automating
+                business workflows, or creating a full-stack application from
+                the ground up.
+              </p>
+              <div
+                class="flex flex-col sm:flex-row items-center justify-center gap-4"
+              >
+                <a
+                  href="#contact"
+                  class="btn-primary px-8 py-3.5 rounded-full font-semibold text-white shadow-[0_0_20px_rgba(99,102,241,0.3)] hover:shadow-[0_0_30px_rgba(168,85,247,0.5)] inline-flex items-center gap-2 group"
+                >
+                  Let's Build Something Great
+                  <i
+                    class="fa-solid fa-arrow-right text-sm group-hover:translate-x-1 transition-transform"
+                  ></i>
+                </a>
+                <a
+                  href="#projects"
+                  class="btn-secondary px-8 py-3.5 rounded-full font-medium text-zinc-300 hover:text-white hover:border-white/40 transition-all inline-flex items-center gap-2"
+                >
+                  <i class="fa-regular fa-folder-open"></i>
+                  Explore My Work
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ! *********************************** -->
+    <section
+      id="skills"
+      class="relative py-24 md:py-32 w-full min-h-screen overflow-hidden"
+    >
+      <!-- Ambient Background Lights -->
+      <div
+        class="ambient-light"
+        style="
+          top: -10%;
+          right: -10%;
+          width: 50vw;
+          height: 50vw;
+          background: #6366f1;
+        "
+      ></div>
+      <div
+        class="ambient-light"
+        style="
+          bottom: -20%;
+          left: -10%;
+          width: 60vw;
+          height: 60vw;
+          background: #06b6d4;
+        "
+      ></div>
+
+      <!-- Grid Overlay -->
+      <div
+        class="absolute inset-0 bg-grid opacity-60 mix-blend-overlay pointer-events-none"
+      ></div>
+
+      <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
+        <!-- ===== Section Header ===== -->
+        <div
+          class="flex flex-col items-center justify-center text-center mb-16 reveal"
+        >
+          <div
+            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-6"
+          >
+            <i class="fa-solid fa-microchip text-brand-accent2 text-xs"></i>
+            <span
+              class="text-xs font-semibold uppercase tracking-widest text-zinc-300"
+              >Technical Expertise</span
+            >
+          </div>
+          <h2
+            class="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-4"
+          >
+            Technical <span class="text-gradient-accent">Expertise</span>
+          </h2>
+          <p class="max-w-2xl text-zinc-400 text-lg">
+            A comprehensive overview of my professional engineering capabilities
+            — from architecting full-stack systems and designing intuitive
+            interfaces to building mobile apps, desktop software, and integrated
+            IoT solutions.
+          </p>
+        </div>
+
+        <!-- ===== Cards Grid ===== -->
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-auto"
+        >
+          <!-- ============================================================ -->
+          <!-- 1. Full Stack & System Architecture -->
+          <!-- ============================================================ -->
+          <div
+            class="bento-card lg:row-span-2 reveal"
+            style="--card-glow: rgba(99, 102, 241, 0.15)"
+          >
+            <div class="flex items-center justify-between mb-6">
+              <div
+                class="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500/20 to-purple-500/20 border border-indigo-500/30 flex items-center justify-center"
+              >
+                <i class="fa-solid fa-layer-group text-xl text-indigo-400"></i>
+              </div>
+              <span
+                class="text-xs font-medium text-indigo-400 bg-indigo-400/10 px-3 py-1 rounded-full border border-indigo-400/20"
+                >Primary Stack</span
+              >
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-2">
+              Full Stack & System Architecture
+            </h3>
+            <p class="text-sm text-zinc-400 mb-8">
+              Designing scalable system architectures, crafting intuitive UI/UX,
+              engineering end-to-end software solutions, and building robust
+              database schemas & REST APIs.
+            </p>
+
+            <div class="flex flex-wrap gap-3 mt-auto">
+              <!-- Frontend -->
+              <div
+                class="tech-pill"
+                style="
+                  --pill-color: #e34f26;
+                  --pill-glow: rgba(227, 79, 38, 0.2);
+                "
+              >
+                <i class="fa-brands fa-html5 text-[#e34f26]"></i> HTML5
+                <span class="status-dot text-[#e34f26]"></span>
+              </div>
+              <div
+                class="tech-pill"
+                style="
+                  --pill-color: #1572b6;
+                  --pill-glow: rgba(21, 114, 182, 0.2);
+                "
+              >
+                <i class="fa-brands fa-css3-alt text-[#1572b6]"></i> CSS3
+                <span class="status-dot text-[#1572b6]"></span>
+              </div>
+              <div
+                class="tech-pill"
+                style="
+                  --pill-color: #f7df1e;
+                  --pill-glow: rgba(247, 223, 30, 0.2);
+                "
+              >
+                <i class="fa-brands fa-js text-[#f7df1e]"></i> JavaScript
+                <span class="status-dot text-[#f7df1e]"></span>
+              </div>
+              <div
+                class="tech-pill"
+                style="
+                  --pill-color: #38b2ac;
+                  --pill-glow: rgba(56, 178, 172, 0.2);
+                "
+              >
+                <svg
+                  class="w-4 h-4 text-[#38b2ac]"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M12.001,4.8c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 C13.666,10.618,15.027,12,18.001,12c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C16.337,6.182,14.976,4.8,12.001,4.8z M6.001,12c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 c1.177,1.194,2.538,2.576,5.512,2.576c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C10.337,13.382,8.976,12,6.001,12z"
+                  />
+                </svg>
+                Tailwind CSS <span class="status-dot text-[#38b2ac]"></span>
+              </div>
+
+              <!-- Backend -->
+              <div
+                class="tech-pill"
+                style="
+                  --pill-color: #777bb4;
+                  --pill-glow: rgba(119, 123, 180, 0.2);
+                "
+              >
+                <i class="fa-brands fa-php text-[#777bb4]"></i> PHP
+              </div>
+              <div
+                class="tech-pill"
+                style="
+                  --pill-color: #10b981;
+                  --pill-glow: rgba(16, 185, 129, 0.2);
+                "
+              >
+                <i class="fa-solid fa-network-wired text-[#10b981]"></i> REST
+                API
+              </div>
+
+              <!-- 🔥 NEW: Database Design & API Design -->
+              <div
+                class="tech-pill"
+                style="
+                  --pill-color: #f59e0b;
+                  --pill-glow: rgba(245, 158, 11, 0.2);
+                "
+              >
+                <i class="fa-solid fa-database text-[#f59e0b]"></i> MySQL
+                Database Design
+              </div>
+              <div
+                class="tech-pill"
+                style="
+                  --pill-color: #8b5cf6;
+                  --pill-glow: rgba(139, 92, 246, 0.2);
+                "
+              >
+                <i class="fa-solid fa-code-branch text-[#8b5cf6]"></i> API
+                Design
+              </div>
+
+              <!-- Architecture & Design -->
+              <div
+                class="tech-pill"
+                style="
+                  --pill-color: #ec4899;
+                  --pill-glow: rgba(236, 72, 153, 0.2);
+                "
+              >
+                <i class="fa-solid fa-pen-ruler text-[#ec4899]"></i> UI/UX
+                Design
+              </div>
+              <div
+                class="tech-pill"
+                style="
+                  --pill-color: #8b5cf6;
+                  --pill-glow: rgba(139, 92, 246, 0.2);
+                "
+              >
+                <i class="fa-solid fa-diagram-project text-[#8b5cf6]"></i>
+                System Architecture
+              </div>
+            </div>
+          </div>
+
+          <!-- ============================================================ -->
+          <!-- 2. Mobile Apps -->
+          <!-- ============================================================ -->
+          <div
+            class="bento-card reveal delay-100"
+            style="--card-glow: rgba(56, 189, 248, 0.1)"
+          >
+            <div class="flex items-center justify-between mb-6">
+              <div
+                class="w-12 h-12 rounded-xl bg-gradient-to-br from-sky-500/20 to-blue-500/20 border border-sky-500/20 flex items-center justify-center"
+              >
+                <i
+                  class="fa-solid fa-mobile-screen-button text-xl text-sky-400"
+                ></i>
+              </div>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Mobile Apps</h3>
+            <p class="text-sm text-zinc-400 mb-6">
+              Developing cross-platform native experiences with offline support.
+            </p>
+            <div class="flex flex-wrap gap-3 mt-auto">
+              <div
+                class="tech-pill"
+                style="
+                  --pill-color: #42a5f5;
+                  --pill-glow: rgba(66, 165, 245, 0.2);
+                "
+              >
+                <i class="fa-brands fa-flutter text-[#42a5f5]"></i> Flutter
+                <span class="status-dot text-[#42a5f5]"></span>
+              </div>
+              <div
+                class="tech-pill"
+                style="
+                  --pill-color: #0175c2;
+                  --pill-glow: rgba(1, 117, 194, 0.2);
+                "
+              >
+                <i class="fa-solid fa-bullseye text-[#0175c2]"></i> Dart
+              </div>
+            </div>
+          </div>
+
+          <!-- ============================================================ -->
+          <!-- 3. Desktop Apps -->
+          <!-- ============================================================ -->
+          <div
+            class="bento-card reveal delay-200"
+            style="--card-glow: rgba(168, 85, 247, 0.1)"
+          >
+            <div class="flex items-center justify-between mb-6">
+              <div
+                class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500/20 to-fuchsia-500/20 border border-purple-500/20 flex items-center justify-center"
+              >
+                <i class="fa-solid fa-desktop text-xl text-purple-400"></i>
+              </div>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Desktop Apps</h3>
+            <p class="text-sm text-zinc-400 mb-6">
+              Enterprise-grade desktop software with embedded web integration.
+            </p>
+            <div class="flex flex-wrap gap-3 mt-auto">
+              <div
+                class="tech-pill"
+                style="
+                  --pill-color: #9b4993;
+                  --pill-glow: rgba(155, 73, 147, 0.2);
+                "
+              >
+                <span class="font-bold text-[#9b4993]">C#</span>
+              </div>
+              <div
+                class="tech-pill"
+                style="
+                  --pill-color: #512bd4;
+                  --pill-glow: rgba(81, 43, 212, 0.2);
+                "
+              >
+                <span class="font-bold text-[#512bd4]">.NET</span>
+              </div>
+              <div
+                class="tech-pill"
+                style="
+                  --pill-color: #0284c7;
+                  --pill-glow: rgba(2, 132, 199, 0.2);
+                "
+              >
+                <span class="font-bold text-[#0284c7]">WebView2</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ============================================================ -->
+          <!-- 4. IoT & Embedded (wide card) -->
+          <!-- ============================================================ -->
+          <div
+            class="bento-card lg:col-span-2 reveal delay-100"
+            style="--card-glow: rgba(16, 185, 129, 0.1)"
+          >
+            <div class="flex items-center justify-between mb-6">
+              <div
+                class="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500/20 to-green-500/20 border border-emerald-500/20 flex items-center justify-center"
+              >
+                <i class="fa-solid fa-microchip text-xl text-emerald-400"></i>
+              </div>
+              <span
+                class="text-xs font-medium text-emerald-400 bg-emerald-400/10 px-3 py-1 rounded-full border border-emerald-400/20"
+                >Hardware Stack</span
+              >
+            </div>
+            <div
+              class="flex flex-col md:flex-row gap-6 items-start md:items-end justify-between h-full"
+            >
+              <div class="max-w-sm">
+                <h3 class="text-2xl font-bold text-white mb-2">
+                  IoT & Embedded
+                </h3>
+                <p class="text-sm text-zinc-400 mb-6">
+                  Bridging the gap between software and physical hardware
+                  through microcontrollers, real-time communication, and
+                  industrial protocols.
+                </p>
+                <div class="flex flex-wrap gap-3 mt-auto">
+                  <div
+                    class="tech-pill"
+                    style="
+                      --pill-color: #00979d;
+                      --pill-glow: rgba(0, 151, 157, 0.2);
+                    "
+                  >
+                    <i class="fa-solid fa-robot text-[#00979d]"></i> Arduino
+                    <span class="status-dot text-[#00979d]"></span>
+                  </div>
+                  <div
+                    class="tech-pill"
+                    style="
+                      --pill-color: #e7352c;
+                      --pill-glow: rgba(231, 53, 44, 0.2);
+                    "
+                  >
+                    <i class="fa-solid fa-memory text-[#e7352c]"></i> ESP32
+                    <span class="status-dot text-[#e7352c]"></span>
+                  </div>
+                  <div
+                    class="tech-pill"
+                    style="
+                      --pill-color: #9ca3af;
+                      --pill-glow: rgba(156, 163, 175, 0.2);
+                    "
+                  >
+                    <i class="fa-solid fa-industry text-zinc-400"></i> PLC
+                  </div>
+                  <div
+                    class="tech-pill"
+                    style="
+                      --pill-color: #22d3ee;
+                      --pill-glow: rgba(34, 211, 238, 0.2);
+                    "
+                  >
+                    <i class="fa-solid fa-microchip text-[#22d3ee]"></i>
+                    PZEM-004T
+                  </div>
+                </div>
+              </div>
+
+              <!-- Decorative Floating Icon -->
+              <div
+                class="relative w-24 h-24 hidden md:flex items-center justify-center animate-float-slow mr-4 mb-2"
+              >
+                <div
+                  class="absolute inset-0 border border-emerald-500/30 rounded-full border-dashed animate-[spin_10s_linear_infinite]"
+                ></div>
+                <div
+                  class="absolute inset-2 border border-emerald-500/20 rounded-full animate-[spin_15s_linear_infinite_reverse]"
+                ></div>
+                <i
+                  class="fa-solid fa-wifi text-2xl text-emerald-500 opacity-80"
+                ></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- ============================================================ -->
+          <!-- 5. Databases -->
+          <!-- ============================================================ -->
+          <div
+            class="bento-card reveal"
+            style="--card-glow: rgba(245, 158, 11, 0.1)"
+          >
+            <div class="flex items-center justify-between mb-6">
+              <div
+                class="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500/20 to-orange-500/20 border border-amber-500/20 flex items-center justify-center"
+              >
+                <i class="fa-solid fa-database text-xl text-amber-400"></i>
+              </div>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Databases</h3>
+            <p class="text-sm text-zinc-400 mb-6">
+              Designing efficient relational schemas and robust local storage
+              solutions.
+            </p>
+            <div class="flex flex-wrap gap-3 mt-auto">
+              <div
+                class="tech-pill"
+                style="
+                  --pill-color: #4479a1;
+                  --pill-glow: rgba(68, 121, 161, 0.2);
+                "
+              >
+                <i class="fa-solid fa-database text-[#4479a1]"></i> MySQL
+              </div>
+              <div
+                class="tech-pill"
+                style="--pill-color: #003b57; --pill-glow: rgba(0, 59, 87, 0.4)"
+              >
+                <i class="fa-solid fa-server text-blue-300"></i> SQLite
+              </div>
+              <div
+                class="tech-pill"
+                style="
+                  --pill-color: #cc292b;
+                  --pill-glow: rgba(204, 41, 43, 0.2);
+                "
+              >
+                <i class="fa-solid fa-table text-[#cc292b]"></i> SQL Server
+              </div>
+            </div>
+          </div>
+
+          <!-- ============================================================ -->
+          <!-- 6. DevOps & Environments (wide card) -->
+          <!-- ============================================================ -->
+          <div
+            class="bento-card lg:col-span-2 reveal"
+            style="--card-glow: rgba(236, 72, 153, 0.1)"
+          >
+            <div class="flex items-center justify-between mb-6">
+              <div
+                class="w-12 h-12 rounded-xl bg-gradient-to-br from-pink-500/20 to-rose-500/20 border border-pink-500/20 flex items-center justify-center"
+              >
+                <i class="fa-solid fa-terminal text-xl text-pink-400"></i>
+              </div>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-2">
+              DevOps & Environments
+            </h3>
+            <p class="text-sm text-zinc-400 mb-6">
+              Version control, containerization, system administration, and
+              CI/CD workflows.
+            </p>
+            <div class="flex flex-wrap gap-3 mt-auto">
+              <div
+                class="tech-pill"
+                style="
+                  --pill-color: #f05032;
+                  --pill-glow: rgba(240, 80, 50, 0.2);
+                "
+              >
+                <i class="fa-brands fa-git-alt text-[#f05032]"></i> Git
+              </div>
+              <div
+                class="tech-pill"
+                style="
+                  --pill-color: #ffffff;
+                  --pill-glow: rgba(255, 255, 255, 0.2);
+                "
+              >
+                <i class="fa-brands fa-github text-white"></i> GitHub
+              </div>
+              <div
+                class="tech-pill"
+                style="
+                  --pill-color: #2496ed;
+                  --pill-glow: rgba(36, 150, 237, 0.2);
+                "
+              >
+                <i class="fa-brands fa-docker text-[#2496ed]"></i> Docker
+              </div>
+              <div
+                class="tech-pill"
+                style="
+                  --pill-color: #fcc624;
+                  --pill-glow: rgba(252, 198, 36, 0.2);
+                "
+              >
+                <i class="fa-brands fa-linux text-[#fcc624]"></i> Linux
+              </div>
+              <div
+                class="tech-pill"
+                style="
+                  --pill-color: #ffca28;
+                  --pill-glow: rgba(255, 202, 40, 0.2);
+                "
+              >
+                <i class="fa-solid fa-fire text-[#ffca28]"></i> Firebase
+              </div>
+            </div>
+          </div>
+
+          <!-- ============================================================ -->
+          <!-- 7. Networking -->
+          <!-- ============================================================ -->
+          <div
+            class="bento-card reveal delay-100"
+            style="--card-glow: rgba(14, 165, 233, 0.1)"
+          >
+            <div class="flex items-center justify-between mb-6">
+              <div
+                class="w-12 h-12 rounded-xl bg-gradient-to-br from-sky-500/20 to-blue-600/20 border border-sky-500/20 flex items-center justify-center"
+              >
+                <i class="fa-solid fa-globe text-xl text-sky-400"></i>
+              </div>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Networking</h3>
+            <p class="text-sm text-zinc-400 mb-6">
+              Infrastructure design, routing protocols, and network security
+              fundamentals.
+            </p>
+            <div class="flex flex-wrap gap-3 mt-auto">
+              <div
+                class="tech-pill"
+                style="
+                  --pill-color: #049fd9;
+                  --pill-glow: rgba(4, 159, 217, 0.2);
+                "
+              >
+                <i class="fa-solid fa-network-wired text-[#049fd9]"></i> Cisco
+                Networking
+              </div>
+              <div
+                class="tech-pill"
+                style="
+                  --pill-color: #3b82f6;
+                  --pill-glow: rgba(59, 130, 246, 0.2);
+                "
+              >
+                <i class="fa-solid fa-shield text-[#3b82f6]"></i> Security
+                Basics
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--! ============================================================ -->
+    <!--           CERTIFICATIONS & AWARDS SECTION                     -->
+    <!--! ============================================================ -->
+    <section
+      id="achievements"
+      class="relative py-24 md:py-32 w-full min-h-screen overflow-hidden"
+    >
+      <!-- Ambient Background Lights -->
+      <div
+        class="ambient-glow"
+        style="
+          top: 15%;
+          right: 10%;
+          width: 45vw;
+          height: 45vw;
+          background: #6366f1;
+        "
+      ></div>
+      <div
+        class="ambient-glow"
+        style="
+          bottom: -10%;
+          left: -5%;
+          width: 50vw;
+          height: 50vw;
+          background: #ec4899;
+        "
+      ></div>
+
+      <!-- Grid Overlay -->
+      <div
+        class="absolute inset-0 bg-grid-subtle mix-blend-overlay pointer-events-none"
+      ></div>
+
+      <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
+        <!-- ===== Section Header ===== -->
+        <div
+          class="flex flex-col items-center justify-center text-center mb-16 reveal"
+        >
+          <div
+            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-6 shadow-[0_0_15px_rgba(255,255,255,0.03)]"
+          >
+            <i class="fa-solid fa-award text-brand-accent2 text-xs"></i>
+            <span
+              class="text-xs font-semibold uppercase tracking-widest text-zinc-300"
+              >Credentials & Recognition</span
+            >
+          </div>
+          <h2
+            class="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-6"
+          >
+            Certifications & <span class="text-gradient-accent">Awards</span>
+          </h2>
+          <p class="max-w-2xl text-zinc-400 text-lg leading-relaxed">
+            Professional certifications and recognitions that validate my
+            expertise and commitment to continuous learning.
+          </p>
+        </div>
+
+        <!-- ===== Filter Buttons ===== -->
+        <div
+          class="flex items-center justify-start md:justify-center gap-3 overflow-x-auto no-scrollbar pb-8 mb-4 reveal delay-100"
+        >
+          <button
+            class="filter-chip active px-6 py-2.5 rounded-full text-sm font-medium whitespace-nowrap"
+            data-filter="all"
+          >
+            All
+          </button>
+          <button
+            class="filter-chip px-6 py-2.5 rounded-full text-sm font-medium whitespace-nowrap"
+            data-filter="award"
+          >
+            Awards
+          </button>
+          <button
+            class="filter-chip px-6 py-2.5 rounded-full text-sm font-medium whitespace-nowrap"
+            data-filter="cert"
+          >
+            Certifications
+          </button>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- ===== AWARDS SECTION (3 بطاقات كبيرة) ===== -->
+        <!-- ============================================================ -->
+        <div
+          class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16"
+          id="awards-grid"
+        >
+          <!-- Award 1: Best Graduation Project -->
+          <article
+            class="cert-item glass-card p-8 group reveal"
+            data-category="all award"
+            style="--card-glow: rgba(245, 158, 11, 0.2)"
+          >
+            <div
+              class="flex flex-col items-center text-center h-full relative z-10"
+            >
+              <div
+                class="w-20 h-20 rounded-full bg-gradient-to-br from-amber-500/30 to-amber-400/20 border border-amber-400/40 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-500 shadow-[0_0_30px_rgba(245,158,11,0.2)]"
+              >
+                <i class="fa-solid fa-trophy text-3xl text-amber-400"></i>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-2">
+                Best Graduation Project
+              </h3>
+              <p class="text-amber-400 text-sm font-medium mb-3">
+                Al-Hikma University · 2025
+              </p>
+              <p class="text-zinc-400 text-sm leading-relaxed flex-1">
+                Awarded for developing the
+                <span class="text-white font-medium"
+                  >Smart Metering Management System</span
+                >
+                — a complete IoT-integrated platform combining Web, Mobile,
+                Desktop, and hardware.
+              </p>
+              <div class="mt-4 flex flex-wrap justify-center gap-2">
+                <span
+                  class="px-2 py-0.5 text-[10px] font-medium bg-amber-500/10 border border-amber-500/20 rounded text-amber-400"
+                  >🏆 1st Place</span
+                >
+                <span
+                  class="px-2 py-0.5 text-[10px] font-medium bg-white/5 border border-white/10 rounded text-zinc-400"
+                  >IoT · Full Stack</span
+                >
+              </div>
+              <button
+                class="mt-4 text-xs font-medium text-brand-accent1 hover:text-brand-accent2 transition-colors inline-flex items-center gap-1 view-award-btn"
+                data-award="graduation"
+              >
+                View Details <i class="fa-solid fa-arrow-right text-[10px]"></i>
+              </button>
+            </div>
+          </article>
+
+          <!-- Award 2: Programming Competition -->
+          <article
+            class="cert-item glass-card p-8 group reveal delay-100"
+            data-category="all award"
+            style="--card-glow: rgba(245, 158, 11, 0.15)"
+          >
+            <div
+              class="flex flex-col items-center text-center h-full relative z-10"
+            >
+              <div
+                class="w-20 h-20 rounded-full bg-gradient-to-br from-amber-500/30 to-amber-400/20 border border-amber-400/40 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-500 shadow-[0_0_30px_rgba(245,158,11,0.15)]"
+              >
+                <i class="fa-solid fa-medal text-3xl text-amber-400"></i>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-2">
+                Programming Competition
+              </h3>
+              <p class="text-amber-400 text-sm font-medium mb-3">
+                University Level · 2024
+              </p>
+              <p class="text-zinc-400 text-sm leading-relaxed flex-1">
+                Recognized for excellence in algorithmic problem-solving and
+                software development during the annual university programming
+                competition.
+              </p>
+              <div class="mt-4 flex flex-wrap justify-center gap-2">
+                <span
+                  class="px-2 py-0.5 text-[10px] font-medium bg-amber-500/10 border border-amber-500/20 rounded text-amber-400"
+                  >🥇 1st Place</span
+                >
+                <span
+                  class="px-2 py-0.5 text-[10px] font-medium bg-white/5 border border-white/10 rounded text-zinc-400"
+                  >Algorithms</span
+                >
+              </div>
+              <button
+                class="mt-4 text-xs font-medium text-brand-accent1 hover:text-brand-accent2 transition-colors inline-flex items-center gap-1 view-award-btn"
+                data-award="competition"
+              >
+                View Details <i class="fa-solid fa-arrow-right text-[10px]"></i>
+              </button>
+            </div>
+          </article>
+
+          <!-- Award 3: Academic Excellence -->
+          <article
+            class="cert-item glass-card p-8 group reveal delay-200"
+            data-category="all award"
+            style="--card-glow: rgba(245, 158, 11, 0.15)"
+          >
+            <div
+              class="flex flex-col items-center text-center h-full relative z-10"
+            >
+              <div
+                class="w-20 h-20 rounded-full bg-gradient-to-br from-amber-500/30 to-amber-400/20 border border-amber-400/40 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-500 shadow-[0_0_30px_rgba(245,158,11,0.15)]"
+              >
+                <i class="fa-solid fa-star text-3xl text-amber-400"></i>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-2">
+                Academic Excellence & Good Conduct
+              </h3>
+              <p class="text-amber-400 text-sm font-medium mb-3">
+                Al-Hikma University · 2024
+              </p>
+              <p class="text-zinc-400 text-sm leading-relaxed flex-1">
+                Awarded for outstanding academic performance, leadership
+                qualities, and exemplary conduct throughout the academic year.
+              </p>
+              <div class="mt-4 flex flex-wrap justify-center gap-2">
+                <span
+                  class="px-2 py-0.5 text-[10px] font-medium bg-amber-500/10 border border-amber-500/20 rounded text-amber-400"
+                  >📚 Honor Roll</span
+                >
+                <span
+                  class="px-2 py-0.5 text-[10px] font-medium bg-white/5 border border-white/10 rounded text-zinc-400"
+                  >Leadership</span
+                >
+              </div>
+              <button
+                class="mt-4 text-xs font-medium text-brand-accent1 hover:text-brand-accent2 transition-colors inline-flex items-center gap-1 view-award-btn"
+                data-award="academic"
+              >
+                View Details <i class="fa-solid fa-arrow-right text-[10px]"></i>
+              </button>
+            </div>
+          </article>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- ===== CERTIFICATIONS SECTION (8 بطاقات صغيرة) ===== -->
+        <!-- ============================================================ -->
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5"
+          id="certs-grid"
+        >
+          <!-- Certification 1: IBM - Flutter & Dart -->
+          <article
+            class="cert-item glass-card p-5 group reveal delay-100"
+            data-category="all cert"
+            style="--card-glow: rgba(99, 102, 241, 0.1)"
+          >
+            <div class="flex flex-col items-center text-center h-full">
+              <div
+                class="w-16 h-16 rounded-xl bg-gradient-to-br from-blue-600/20 to-blue-400/10 border border-blue-500/30 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300"
+              >
+                <!-- IBM Logo SVG -->
+                <svg viewBox="0 0 100 100" class="w-10 h-10">
+                  <rect width="100" height="100" rx="12" fill="#006699" />
+                  <text
+                    x="50"
+                    y="58"
+                    font-family="Arial, sans-serif"
+                    font-size="28"
+                    font-weight="bold"
+                    fill="white"
+                    text-anchor="middle"
+                  >
+                    IBM
+                  </text>
+                  <text
+                    x="50"
+                    y="78"
+                    font-family="Arial, sans-serif"
+                    font-size="10"
+                    fill="#99ccff"
+                    text-anchor="middle"
+                  >
+                    CERTIFIED
+                  </text>
+                </svg>
+              </div>
+              <h4 class="text-sm font-bold text-white mb-1">Flutter & Dart</h4>
+              <p class="text-[11px] text-zinc-400">IBM · 2025</p>
+              <button
+                class="mt-3 text-[10px] font-medium text-brand-accent1 hover:text-brand-accent2 transition-colors inline-flex items-center gap-1 view-cert-btn"
+                data-cert="ibm-flutter"
+              >
+                View Credential
+                <i
+                  class="fa-solid fa-arrow-up-right-from-square text-[8px]"
+                ></i>
+              </button>
+            </div>
+          </article>
+
+          <!-- Certification 2: Cisco CCNA -->
+          <article
+            class="cert-item glass-card p-5 group reveal delay-200"
+            data-category="all cert"
+            style="--card-glow: rgba(0, 150, 255, 0.1)"
+          >
+            <div class="flex flex-col items-center text-center h-full">
+              <div
+                class="w-16 h-16 rounded-xl bg-gradient-to-br from-sky-600/20 to-sky-400/10 border border-sky-500/30 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300"
+              >
+                <!-- Cisco Logo SVG -->
+                <svg viewBox="0 0 100 100" class="w-10 h-10">
+                  <rect width="100" height="100" rx="12" fill="#049fd9" />
+                  <text
+                    x="50"
+                    y="62"
+                    font-family="Arial, sans-serif"
+                    font-size="24"
+                    font-weight="bold"
+                    fill="white"
+                    text-anchor="middle"
+                  >
+                    cisco
+                  </text>
+                </svg>
+              </div>
+              <h4 class="text-sm font-bold text-white mb-1">CCNA</h4>
+              <p class="text-[11px] text-zinc-400">Cisco · 2024</p>
+              <button
+                class="mt-3 text-[10px] font-medium text-brand-accent1 hover:text-brand-accent2 transition-colors inline-flex items-center gap-1 view-cert-btn"
+                data-cert="cisco-ccna"
+              >
+                View Credential
+                <i
+                  class="fa-solid fa-arrow-up-right-from-square text-[8px]"
+                ></i>
+              </button>
+            </div>
+          </article>
+
+          <!-- Certification 3: Cisco Cybersecurity -->
+          <article
+            class="cert-item glass-card p-5 group reveal delay-300"
+            data-category="all cert"
+            style="--card-glow: rgba(0, 150, 255, 0.08)"
+          >
+            <div class="flex flex-col items-center text-center h-full">
+              <div
+                class="w-16 h-16 rounded-xl bg-gradient-to-br from-sky-600/20 to-sky-400/10 border border-sky-500/30 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300"
+              >
+                <svg viewBox="0 0 100 100" class="w-10 h-10">
+                  <rect width="100" height="100" rx="12" fill="#049fd9" />
+                  <text
+                    x="50"
+                    y="62"
+                    font-family="Arial, sans-serif"
+                    font-size="24"
+                    font-weight="bold"
+                    fill="white"
+                    text-anchor="middle"
+                  >
+                    cisco
+                  </text>
+                </svg>
+              </div>
+              <h4 class="text-sm font-bold text-white mb-1">Cybersecurity</h4>
+              <p class="text-[11px] text-zinc-400">Cisco · 2024</p>
+              <button
+                class="mt-3 text-[10px] font-medium text-brand-accent1 hover:text-brand-accent2 transition-colors inline-flex items-center gap-1 view-cert-btn"
+                data-cert="cisco-cybersecurity"
+              >
+                View Credential
+                <i
+                  class="fa-solid fa-arrow-up-right-from-square text-[8px]"
+                ></i>
+              </button>
+            </div>
+          </article>
+
+          <!-- Certification 4: Cisco Ethical Hacker -->
+          <article
+            class="cert-item glass-card p-5 group reveal delay-100"
+            data-category="all cert"
+            style="--card-glow: rgba(0, 150, 255, 0.08)"
+          >
+            <div class="flex flex-col items-center text-center h-full">
+              <div
+                class="w-16 h-16 rounded-xl bg-gradient-to-br from-sky-600/20 to-sky-400/10 border border-sky-500/30 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300"
+              >
+                <svg viewBox="0 0 100 100" class="w-10 h-10">
+                  <rect width="100" height="100" rx="12" fill="#049fd9" />
+                  <text
+                    x="50"
+                    y="62"
+                    font-family="Arial, sans-serif"
+                    font-size="24"
+                    font-weight="bold"
+                    fill="white"
+                    text-anchor="middle"
+                  >
+                    cisco
+                  </text>
+                </svg>
+              </div>
+              <h4 class="text-sm font-bold text-white mb-1">Ethical Hacker</h4>
+              <p class="text-[11px] text-zinc-400">Cisco · 2024</p>
+              <button
+                class="mt-3 text-[10px] font-medium text-brand-accent1 hover:text-brand-accent2 transition-colors inline-flex items-center gap-1 view-cert-btn"
+                data-cert="cisco-ethical-hacker"
+              >
+                View Credential
+                <i
+                  class="fa-solid fa-arrow-up-right-from-square text-[8px]"
+                ></i>
+              </button>
+            </div>
+          </article>
+
+          <!-- Certification 5: Coursera - Project Management -->
+          <article
+            class="cert-item glass-card p-5 group reveal delay-200"
+            data-category="all cert"
+            style="--card-glow: rgba(0, 120, 255, 0.1)"
+          >
+            <div class="flex flex-col items-center text-center h-full">
+              <div
+                class="w-16 h-16 rounded-xl bg-gradient-to-br from-blue-600/20 to-blue-400/10 border border-blue-500/30 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300"
+              >
+                <svg viewBox="0 0 100 100" class="w-10 h-10">
+                  <rect width="100" height="100" rx="12" fill="#2a73cc" />
+                  <text
+                    x="50"
+                    y="58"
+                    font-family="Arial, sans-serif"
+                    font-size="16"
+                    font-weight="bold"
+                    fill="white"
+                    text-anchor="middle"
+                  >
+                    Coursera
+                  </text>
+                  <text
+                    x="50"
+                    y="78"
+                    font-family="Arial, sans-serif"
+                    font-size="8"
+                    fill="#99ccff"
+                    text-anchor="middle"
+                  >
+                    CERTIFICATE
+                  </text>
+                </svg>
+              </div>
+              <h4 class="text-sm font-bold text-white mb-1">
+                Project Management
+              </h4>
+              <p class="text-[11px] text-zinc-400">Coursera · 2025</p>
+              <button
+                class="mt-3 text-[10px] font-medium text-brand-accent1 hover:text-brand-accent2 transition-colors inline-flex items-center gap-1 view-cert-btn"
+                data-cert="coursera-pm"
+              >
+                View Credential
+                <i
+                  class="fa-solid fa-arrow-up-right-from-square text-[8px]"
+                ></i>
+              </button>
+            </div>
+          </article>
+
+          <!-- Certification 6: Google - Data Analytics -->
+          <article
+            class="cert-item glass-card p-5 group reveal delay-300"
+            data-category="all cert"
+            style="--card-glow: rgba(66, 133, 244, 0.1)"
+          >
+            <div class="flex flex-col items-center text-center h-full">
+              <div
+                class="w-16 h-16 rounded-xl bg-gradient-to-br from-blue-600/20 to-blue-400/10 border border-blue-500/30 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300"
+              >
+                <svg viewBox="0 0 100 100" class="w-10 h-10">
+                  <rect width="100" height="100" rx="12" fill="#4285f4" />
+                  <text
+                    x="50"
+                    y="58"
+                    font-family="Arial, sans-serif"
+                    font-size="22"
+                    font-weight="bold"
+                    fill="white"
+                    text-anchor="middle"
+                  >
+                    Google
+                  </text>
+                  <text
+                    x="50"
+                    y="78"
+                    font-family="Arial, sans-serif"
+                    font-size="8"
+                    fill="#aac8ff"
+                    text-anchor="middle"
+                  >
+                    CERTIFIED
+                  </text>
+                </svg>
+              </div>
+              <h4 class="text-sm font-bold text-white mb-1">
+                Data, Data, Everywhere
+              </h4>
+              <p class="text-[11px] text-zinc-400">Google · 2025</p>
+              <button
+                class="mt-3 text-[10px] font-medium text-brand-accent1 hover:text-brand-accent2 transition-colors inline-flex items-center gap-1 view-cert-btn"
+                data-cert="google-data"
+              >
+                View Credential
+                <i
+                  class="fa-solid fa-arrow-up-right-from-square text-[8px]"
+                ></i>
+              </button>
+            </div>
+          </article>
+
+          <!-- Certification 7: Google - Gemini Certified Student (جديد) -->
+          <article
+            class="cert-item glass-card p-5 group reveal delay-100"
+            data-category="all cert"
+            style="--card-glow: rgba(66, 133, 244, 0.08)"
+          >
+            <div class="flex flex-col items-center text-center h-full">
+              <div
+                class="w-16 h-16 rounded-xl bg-gradient-to-br from-blue-600/20 to-blue-400/10 border border-blue-500/30 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300"
+              >
+                <svg viewBox="0 0 100 100" class="w-10 h-10">
+                  <rect width="100" height="100" rx="12" fill="#4285f4" />
+                  <text
+                    x="50"
+                    y="58"
+                    font-family="Arial, sans-serif"
+                    font-size="22"
+                    font-weight="bold"
+                    fill="white"
+                    text-anchor="middle"
+                  >
+                    Google
+                  </text>
+                  <text
+                    x="50"
+                    y="78"
+                    font-family="Arial, sans-serif"
+                    font-size="8"
+                    fill="#aac8ff"
+                    text-anchor="middle"
+                  >
+                    EDUCATION
+                  </text>
+                </svg>
+              </div>
+              <h4 class="text-sm font-bold text-white mb-1">
+                Gemini Certified Student
+              </h4>
+              <p class="text-[11px] text-zinc-400">
+                Google for Education · 2025
+              </p>
+              <button
+                class="mt-3 text-[10px] font-medium text-brand-accent1 hover:text-brand-accent2 transition-colors inline-flex items-center gap-1 view-cert-btn"
+                data-cert="google-gemini"
+              >
+                View Credential
+                <i
+                  class="fa-solid fa-arrow-up-right-from-square text-[8px]"
+                ></i>
+              </button>
+            </div>
+          </article>
+
+          <!-- Certification 8: Google - IT Support (In Progress) -->
+          <article
+            class="cert-item glass-card p-5 group reveal delay-200"
+            data-category="all cert"
+            style="--card-glow: rgba(66, 133, 244, 0.06)"
+          >
+            <div class="flex flex-col items-center text-center h-full">
+              <div
+                class="w-16 h-16 rounded-xl bg-gradient-to-br from-blue-600/20 to-blue-400/10 border border-blue-500/30 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300"
+              >
+                <svg viewBox="0 0 100 100" class="w-10 h-10">
+                  <rect width="100" height="100" rx="12" fill="#4285f4" />
+                  <text
+                    x="50"
+                    y="58"
+                    font-family="Arial, sans-serif"
+                    font-size="22"
+                    font-weight="bold"
+                    fill="white"
+                    text-anchor="middle"
+                  >
+                    Google
+                  </text>
+                  <text
+                    x="50"
+                    y="78"
+                    font-family="Arial, sans-serif"
+                    font-size="8"
+                    fill="#aac8ff"
+                    text-anchor="middle"
+                  >
+                    EDUCATION
+                  </text>
+                </svg>
+              </div>
+              <h4 class="text-sm font-bold text-white mb-1">IT Support</h4>
+              <div class="flex items-center gap-2">
+                <p class="text-[11px] text-zinc-400">Google</p>
+                <span
+                  class="px-2 py-0.5 text-[8px] font-medium bg-amber-500/20 border border-amber-500/30 rounded text-amber-400"
+                  >In Progress</span
+                >
+              </div>
+              <p class="text-[10px] text-zinc-500 mt-1">~70% completed</p>
+              <button
+                class="mt-3 text-[10px] font-medium text-zinc-500 hover:text-zinc-300 transition-colors inline-flex items-center gap-1"
+                disabled
+              >
+                Coming Soon <i class="fa-solid fa-clock text-[8px]"></i>
+              </button>
+            </div>
+          </article>
+        </div>
+
+        <!-- ===== CTA: View All Credentials ===== -->
+        <div class="text-center mt-16 reveal">
+          <button
+            class="btn-secondary px-10 py-4 rounded-full font-medium text-zinc-300 hover:text-white hover:border-white/40 transition-all inline-flex items-center gap-3 group"
+            id="viewAllCredentials"
+          >
+            <i class="fa-solid fa-arrow-up-right-from-square text-sm"></i>
+            View All Credentials
+            <i
+              class="fa-solid fa-arrow-right text-sm group-hover:translate-x-1 transition-transform"
+            ></i>
+          </button>
+        </div>
+      </div>
+    </section>
+    <!-- ============================================================ -->
+    <!-- ===== CREDENTIAL MODAL ===== -->
+    <!-- ============================================================ -->
+    <div
+      id="credentialModal"
+      class="fixed inset-0 z-[9999] hidden items-center justify-center bg-black/90 backdrop-blur-lg p-4 md:p-8"
+      style="display: none"
+    >
+      <div
+        class="relative max-w-4xl w-full max-h-[90vh] bg-brand-900 rounded-2xl border border-white/10 overflow-hidden shadow-2xl"
+      >
+        <!-- Close Button -->
+        <button
+          id="modalClose"
+          class="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-white/10 border border-white/20 text-white hover:bg-white/20 transition-all flex items-center justify-center"
+        >
+          <i class="fa-solid fa-xmark text-xl"></i>
+        </button>
+
+        <!-- Modal Content -->
+        <div class="flex flex-col md:flex-row h-full">
+          <!-- Image Section -->
+          <div
+            class="flex-1 bg-brand-800/50 p-6 md:p-10 flex items-center justify-center min-h-[300px] md:min-h-[400px]"
+          >
+            <img
+              id="modalImage"
+              src=""
+              alt="Certificate"
+              class="max-w-full max-h-[60vh] object-contain rounded-lg shadow-xl"
+            />
+          </div>
+
+          <!-- Info Section -->
+          <div
+            class="w-full md:w-80 p-6 md:p-8 border-t md:border-t-0 md:border-l border-white/10 flex flex-col gap-4"
+          >
+            <div class="flex items-center gap-3">
+              <div
+                id="modalIcon"
+                class="w-12 h-12 rounded-xl bg-gradient-to-br from-brand-accent1/20 to-brand-accent2/20 border border-brand-accent1/30 flex items-center justify-center text-2xl"
+              >
+                <i class="fa-solid fa-certificate text-brand-accent1"></i>
+              </div>
+              <div>
+                <h3 id="modalTitle" class="text-lg font-bold text-white">
+                  Certificate Name
+                </h3>
+                <p id="modalIssuer" class="text-sm text-zinc-400">
+                  Issuer · Year
+                </p>
+              </div>
+            </div>
+
+            <div
+              id="modalDescription"
+              class="text-sm text-zinc-400 leading-relaxed"
+            >
+              Description of the certification or award.
+            </div>
+
+            <div class="flex flex-wrap gap-2 mt-2" id="modalTags">
+              <span
+                class="px-2 py-0.5 text-[10px] font-medium bg-white/5 border border-white/10 rounded text-zinc-400"
+                >Tag</span
+              >
+            </div>
+
+            <div
+              class="mt-auto pt-4 border-t border-white/10 flex flex-col gap-3"
+            >
+              <a
+                id="modalVerifyLink"
+                href="#"
+                target="_blank"
+                class="btn-primary w-full py-3 rounded-xl text-sm font-semibold text-white flex items-center justify-center gap-2"
+              >
+                <i class="fa-solid fa-shield-check"></i> Verify Credential
+              </a>
+              <button
+                id="modalCloseBtn"
+                class="btn-secondary w-full py-3 rounded-xl text-sm font-medium text-zinc-300 hover:text-white hover:border-white/40 transition-all flex items-center justify-center gap-2"
+              >
+                <i class="fa-solid fa-xmark"></i> Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--! ================================================================ -->
+    <!-- ===== SECTION: PROJECTS (معرض المشاريع المُحسّن) ===== -->
+    <!-- !================================================================ -->
+    <section
+      id="projects"
+      class="relative w-full min-h-screen overflow-hidden py-20 md:py-32"
+    >
+      <!-- ===== خلفيات متعددة الطبقات ===== -->
+      <!-- الطبقة 1: توهج أزرق بنفسجي -->
+      <div
+        class="absolute top-[-20%] left-[-15%] w-[50vw] h-[50vw] rounded-full bg-[#6366f1] blur-[150px] opacity-[0.08] pointer-events-none"
+      ></div>
+
+      <!-- الطبقة 2: توهج وردي-بنفسجي -->
+      <div
+        class="absolute bottom-[-10%] right-[-10%] w-[45vw] h-[45vw] rounded-full bg-[#a855f7] blur-[160px] opacity-[0.06] pointer-events-none"
+      ></div>
+
+      <!-- الطبقة 3: توهج أزرق سماوي -->
+      <div
+        class="absolute top-[40%] left-[30%] w-[35vw] h-[35vw] rounded-full bg-[#06b6d4] blur-[140px] opacity-[0.04] pointer-events-none"
+      ></div>
+
+      <!-- طبقة الشبكة (ناعمة) -->
+      <div
+        class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCI+PHBhdGggZD0iTTAgMGg2MHY2MEgweiIgZmlsbD0ibm9uZSIvPjxwYXRoIGQ9Ik0wIDEwaDYwTTAgMjBoNjBNMCAzMGg2ME0wIDQwaDYwTTAgNTBoNjBNMTAgMHY2ME0yMCAwdjYwTTMwIDB2NjBNNDAgMHY2ME01MCAwdjYwIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wMjUpIiBzdHJva2Utd2lkdGg9IjAuNSIvPjwvc3ZnPg==')] pointer-events-none opacity-30"
+      ></div>
+
+      <!-- ===== خط فاصل زخرفي متحرك ===== -->
+      <div
+        class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#6366f1]/20 to-transparent"
+      ></div>
+
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- ===== رأس القسم (مُحسّن) ===== -->
+        <div class="text-center mb-20 reveal">
+          <!-- شارة مميزة -->
+          <div
+            class="inline-flex items-center gap-2 px-5 py-2 rounded-full glass-badge mb-5 border border-white/5 hover:border-brand-accent1/30 transition-all duration-500 group"
+          >
+            <i
+              class="fa-solid fa-folder-open text-brand-accent1 text-xs group-hover:scale-110 transition-transform"
+            ></i>
+            <span
+              class="text-xs font-semibold uppercase tracking-[0.15em] text-zinc-400"
+              >Portfolio</span
+            >
+            <span class="w-1 h-1 rounded-full bg-brand-accent1/50"></span>
+            <span class="text-[10px] font-medium text-zinc-500"
+              >2023 – 2025</span
+            >
+          </div>
+
+          <!-- العنوان الرئيسي -->
+          <h2
+            class="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-5"
+          >
+            My <span class="text-gradient-accent">Projects</span>
+            <span class="inline-block ml-2 text-3xl md:text-4xl text-zinc-600"
+              >✦</span
+            >
+          </h2>
+
+          <!-- الوصف -->
+          <p
+            class="max-w-2xl mx-auto text-zinc-400 text-base md:text-lg leading-relaxed"
+          >
+            A curated selection of my work across
+            <span class="text-white font-medium">Web</span>,
+            <span class="text-white font-medium">Mobile</span>,
+            <span class="text-white font-medium">Desktop</span>, and
+            <span class="text-white font-medium">IoT</span> — each project tells
+            a story of
+            <span class="text-gradient-accent font-medium"
+              >problem-solving</span
+            >
+            and
+            <span class="text-gradient-accent font-medium">innovation</span>.
+          </p>
+
+          <!-- إحصائيات مصغرة -->
+          <div
+            class="flex flex-wrap items-center justify-center gap-6 mt-6 text-sm"
+          >
+            <div class="flex items-center gap-2">
+              <span
+                class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"
+              ></span>
+              <span class="text-zinc-500">9</span>
+              <span class="text-zinc-600">projects</span>
+            </div>
+            <div class="w-px h-4 bg-white/10"></div>
+            <div class="flex items-center gap-2">
+              <i class="fa-solid fa-code text-brand-accent4 text-xs"></i>
+              <span class="text-zinc-500">Full Stack</span>
+            </div>
+            <div class="w-px h-4 bg-white/10"></div>
+            <div class="flex items-center gap-2">
+              <i class="fa-solid fa-microchip text-amber-400 text-xs"></i>
+              <span class="text-zinc-500">IoT</span>
+            </div>
+            <div class="w-px h-4 bg-white/10"></div>
+            <div class="flex items-center gap-2">
+              <i
+                class="fa-solid fa-mobile-screen-button text-cyan-400 text-xs"
+              ></i>
+              <span class="text-zinc-500">Mobile</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== أزرار التصفية (Filter Chips) ===== -->
+        <div
+          class="flex flex-wrap items-center justify-center gap-2.5 mb-12 reveal delay-100"
+        >
+          <button
+            class="filter-chip active px-5 py-2.5 rounded-full text-xs font-medium transition-all duration-300"
+            data-filter="all"
+          >
+            <i class="fa-solid fa-grid-2 text-[10px] mr-1.5"></i>
+            All
+          </button>
+          <button
+            class="filter-chip px-5 py-2.5 rounded-full text-xs font-medium transition-all duration-300"
+            data-filter="fullstack"
+          >
+            <i class="fa-solid fa-layer-group text-[10px] mr-1.5"></i>
+            Full Stack
+          </button>
+          <button
+            class="filter-chip px-5 py-2.5 rounded-full text-xs font-medium transition-all duration-300"
+            data-filter="mobile"
+          >
+            <i class="fa-solid fa-mobile-screen-button text-[10px] mr-1.5"></i>
+            Mobile
+          </button>
+          <button
+            class="filter-chip px-5 py-2.5 rounded-full text-xs font-medium transition-all duration-300"
+            data-filter="iot"
+          >
+            <i class="fa-solid fa-microchip text-[10px] mr-1.5"></i>
+            IoT
+          </button>
+          <button
+            class="filter-chip px-5 py-2.5 rounded-full text-xs font-medium transition-all duration-300"
+            data-filter="web"
+          >
+            <i class="fa-solid fa-globe text-[10px] mr-1.5"></i>
+            Web
+          </button>
+        </div>
+
+        <!-- ===== شبكة المشاريع (مُحسّنة) ===== -->
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
+          id="projectsGrid"
+        >
+          <!-- سيتم إنشاء البطاقات ديناميكياً عبر JavaScript -->
+        </div>
+
+        <!-- ===== زر عرض الكل (مُحسّن) ===== -->
+        <div class="text-center mt-14 reveal delay-300">
+          <a
+            href="#"
+            class="group inline-flex items-center gap-3 px-8 py-3.5 rounded-full bg-white/5 border border-white/10 text-sm font-medium text-zinc-300 hover:text-white hover:border-white/30 hover:bg-white/10 transition-all duration-500"
+          >
+            <span>View All Projects</span>
+            <i
+              class="fa-solid fa-arrow-right text-sm group-hover:translate-x-1.5 group-hover:-translate-y-0.5 transition-all duration-300"
+            ></i>
+            <span class="text-[10px] text-zinc-600 font-normal ml-1"
+              >(9 projects)</span
+            >
+          </a>
+        </div>
+
+        <!-- ===== خط فاصل سفلي زخرفي ===== -->
+        <div class="relative mt-20">
+          <div class="absolute inset-0 flex items-center">
+            <div class="w-full border-t border-white/5"></div>
+          </div>
+          <div class="relative flex justify-center">
+            <span
+              class="px-4 bg-[#08080a] text-[10px] text-zinc-600 tracking-[0.2em] uppercase"
+            >
+              <i
+                class="fa-regular fa-circle-dot text-brand-accent1/30 mr-2"
+              ></i>
+              scroll to explore
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ============================================================ -->
+    <!--                      CONTACT SECTION                           -->
+    <!-- ============================================================ -->
+    <section
+      id="contact"
+      class="relative py-24 md:py-32 w-full min-h-screen overflow-hidden"
+    >
+      <!-- Ambient Background Lights -->
+      <div
+        class="ambient-glow"
+        style="
+          top: -10%;
+          left: -10%;
+          width: 50vw;
+          height: 50vw;
+          background: #6366f1;
+        "
+      ></div>
+      <div
+        class="ambient-glow"
+        style="
+          bottom: -20%;
+          right: -10%;
+          width: 60vw;
+          height: 60vw;
+          background: #06b6d4;
+        "
+      ></div>
+      <div
+        class="ambient-glow"
+        style="
+          top: 50%;
+          left: 30%;
+          width: 40vw;
+          height: 40vw;
+          background: #a855f7;
+          opacity: 0.08;
+        "
+      ></div>
+
+      <!-- Grid Overlay -->
+      <div
+        class="absolute inset-0 bg-grid-subtle mix-blend-overlay pointer-events-none"
+      ></div>
+
+      <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
+        <!-- ===== Section Header ===== -->
+        <div
+          class="flex flex-col items-center justify-center text-center mb-16 md:mb-20 reveal"
+        >
+          <div
+            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-6 shadow-[0_0_15px_rgba(255,255,255,0.03)]"
+          >
+            <i class="fa-solid fa-paper-plane text-brand-accent1 text-xs"></i>
+            <span
+              class="text-xs font-semibold uppercase tracking-widest text-zinc-300"
+              >Let's Connect</span
+            >
+          </div>
+          <h2
+            class="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-4"
+          >
+            Let's Work <span class="text-gradient-accent">Together</span>
+          </h2>
+          <p class="max-w-2xl text-zinc-400 text-lg leading-relaxed">
+            I'm always open to discussing new projects, collaborations, or
+            opportunities. Whether you need a full-stack solution, a mobile
+            application, or software engineering expertise — let's bring your
+            vision to life.
+          </p>
+
+          <!-- Availability & Response Time Badge -->
+          <div class="mt-5 flex flex-wrap items-center justify-center gap-3">
+            <div
+              class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-green-500/10 border border-green-500/20"
+            >
+              <span class="relative flex h-2.5 w-2.5">
+                <span
+                  class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"
+                ></span>
+                <span
+                  class="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"
+                ></span>
+              </span>
+              <span class="text-sm font-medium text-zinc-300">
+                Available for
+                <span class="text-white font-semibold"
+                  >Full Stack Development</span
+                >,
+                <span class="text-white font-semibold">Mobile Applications</span
+                >, and
+                <span class="text-white font-semibold"
+                  >Software Engineering</span
+                >
+                opportunities
+              </span>
+            </div>
+            <!-- Average Response Time -->
+            <div
+              class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-accent1/10 border border-brand-accent1/20"
+            >
+              <i class="fa-regular fa-clock text-brand-accent1 text-sm"></i>
+              <span class="text-xs font-medium text-zinc-300"
+                >Avg. Response Time
+                <span class="text-white font-semibold"
+                  >&lt; 24 hours</span
+                ></span
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== Main Layout Grid ===== -->
+        <div
+          class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start"
+        >
+          <!-- ===== LEFT COLUMN: Contact Info & Availability ===== -->
+          <div class="lg:col-span-5 flex flex-col gap-6 reveal delay-100">
+            <!-- Availability Card -->
+            <div
+              class="glass-card p-6 md:p-8 group hover:border-green-500/20 transition-all"
+              style="--card-glow: rgba(34, 197, 94, 0.08)"
+            >
+              <div class="flex items-center gap-3 mb-5">
+                <div
+                  class="w-10 h-10 rounded-xl bg-green-500/10 border border-green-500/20 flex items-center justify-center"
+                >
+                  <i
+                    class="fa-solid fa-circle-check text-green-400 text-lg"
+                  ></i>
+                </div>
+                <h3 class="text-lg font-bold text-white">
+                  Current Availability
+                </h3>
+              </div>
+              <div class="space-y-3.5">
+                <div class="flex items-center gap-3">
+                  <i
+                    class="fa-solid fa-check-circle text-green-400 text-sm w-5"
+                  ></i>
+                  <span class="text-zinc-300 font-medium text-sm"
+                    >Available for
+                    <span class="text-white"
+                      >Full-Time Opportunities</span
+                    ></span
+                  >
+                </div>
+                <div class="flex items-center gap-3">
+                  <i
+                    class="fa-solid fa-check-circle text-green-400 text-sm w-5"
+                  ></i>
+                  <span class="text-zinc-300 font-medium text-sm"
+                    >Available for
+                    <span class="text-white">Freelance Projects</span></span
+                  >
+                </div>
+                <div class="flex items-center gap-3">
+                  <i
+                    class="fa-solid fa-check-circle text-green-400 text-sm w-5"
+                  ></i>
+                  <span class="text-zinc-300 font-medium text-sm"
+                    >Open to
+                    <span class="text-white">Remote Collaboration</span></span
+                  >
+                </div>
+                <div class="flex items-center gap-3">
+                  <i
+                    class="fa-solid fa-clock text-brand-accent4 text-sm w-5"
+                  ></i>
+                  <span class="text-zinc-300 font-medium text-sm"
+                    >Response within
+                    <span class="text-white">24 Hours</span></span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- ===== Contact Details ===== -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-3.5">
+              <!-- Email -->
+              <a
+                href="mailto:naderwadah71@gmail.com"
+                class="info-card group"
+                style="
+                  --icon-bg: rgba(99, 102, 241, 0.12);
+                  --icon-border: rgba(99, 102, 241, 0.3);
+                  --icon-color: #818cf8;
+                "
+              >
+                <div class="info-icon">
+                  <i class="fa-solid fa-envelope text-lg"></i>
+                </div>
+                <div>
+                  <span
+                    class="text-[10px] text-zinc-500 font-medium uppercase tracking-wider"
+                    >Email</span
+                  >
+                  <p
+                    class="text-sm font-semibold text-zinc-200 group-hover:text-white transition-colors"
+                  >
+                    naderwadah71@gmail.com
+                  </p>
+                </div>
+              </a>
+
+              <!-- Phone -->
+              <a
+                href="https://wa.me/966560889123"
+                target="_blank"
+                class="info-card group"
+                style="
+                  --icon-bg: rgba(6, 182, 212, 0.12);
+                  --icon-border: rgba(6, 182, 212, 0.3);
+                  --icon-color: #22d3ee;
+                "
+              >
+                <div class="info-icon">
+                  <i class="fa-solid fa-phone text-lg"></i>
+                </div>
+                <div>
+                  <span
+                    class="text-[10px] text-zinc-500 font-medium uppercase tracking-wider"
+                    >Phone / WhatsApp</span
+                  >
+                  <p
+                    class="text-sm font-semibold text-zinc-200 group-hover:text-white transition-colors"
+                  >
+                    +966 560 889 123
+                  </p>
+                </div>
+              </a>
+
+              <!-- Location -->
+              <div
+                class="info-card group cursor-default"
+                style="
+                  --icon-bg: rgba(168, 85, 247, 0.12);
+                  --icon-border: rgba(168, 85, 247, 0.3);
+                  --icon-color: #c084fc;
+                "
+              >
+                <div class="info-icon">
+                  <i class="fa-solid fa-location-dot text-lg"></i>
+                </div>
+                <div>
+                  <span
+                    class="text-[10px] text-zinc-500 font-medium uppercase tracking-wider"
+                    >Location</span
+                  >
+                  <p
+                    class="text-sm font-semibold text-zinc-200 group-hover:text-white transition-colors"
+                  >
+                    Buraydah, Saudi Arabia
+                  </p>
+                  <p class="text-[10px] text-zinc-600">🇸🇦 · Open to Remote</p>
+                </div>
+              </div>
+
+              <!-- Timezone -->
+              <div
+                class="info-card group cursor-default"
+                style="
+                  --icon-bg: rgba(236, 72, 153, 0.12);
+                  --icon-border: rgba(236, 72, 153, 0.3);
+                  --icon-color: #ec4899;
+                "
+              >
+                <div class="info-icon">
+                  <i class="fa-regular fa-clock text-lg"></i>
+                </div>
+                <div>
+                  <span
+                    class="text-[10px] text-zinc-500 font-medium uppercase tracking-wider"
+                    >Timezone</span
+                  >
+                  <p
+                    class="text-sm font-semibold text-zinc-200 group-hover:text-white transition-colors"
+                  >
+                    GMT+3 (Arabia Standard Time)
+                  </p>
+                  <p class="text-[10px] text-zinc-600">
+                    Working hours: 9 AM – 6 PM
+                  </p>
+                </div>
+              </div>
+
+              <!-- LinkedIn -->
+              <a
+                href="https://www.linkedin.com/in/naderwaddah/"
+                target="_blank"
+                class="info-card group"
+                style="
+                  --icon-bg: rgba(10, 102, 194, 0.12);
+                  --icon-border: rgba(10, 102, 194, 0.3);
+                  --icon-color: #0a66c2;
+                "
+              >
+                <div class="info-icon">
+                  <i class="fa-brands fa-linkedin text-lg"></i>
+                </div>
+                <div>
+                  <span
+                    class="text-[10px] text-zinc-500 font-medium uppercase tracking-wider"
+                    >LinkedIn</span
+                  >
+                  <p
+                    class="text-sm font-semibold text-zinc-200 group-hover:text-white transition-colors"
+                  >
+                    naderwaddah
+                  </p>
+                </div>
+              </a>
+
+              <!-- GitHub -->
+              <a
+                href="https://github.com/naderwddah"
+                target="_blank"
+                class="info-card group"
+                style="
+                  --icon-bg: rgba(255, 255, 255, 0.05);
+                  --icon-border: rgba(255, 255, 255, 0.15);
+                  --icon-color: #ffffff;
+                "
+              >
+                <div class="info-icon">
+                  <i class="fa-brands fa-github text-lg"></i>
+                </div>
+                <div>
+                  <span
+                    class="text-[10px] text-zinc-500 font-medium uppercase tracking-wider"
+                    >GitHub</span
+                  >
+                  <p
+                    class="text-sm font-semibold text-zinc-200 group-hover:text-white transition-colors"
+                  >
+                    naderwddah
+                  </p>
+                </div>
+              </a>
+            </div>
+
+            <!-- ===== Download CV ===== -->
+            <a
+              href="./assets/cv-nader-alqayadi.pdf"
+              download
+              class="w-full btn-primary py-3.5 px-6 rounded-xl text-white font-semibold flex items-center justify-center gap-3 shadow-[0_0_20px_rgba(99,102,241,0.3)] hover:shadow-[0_0_30px_rgba(168,85,247,0.5)] transition-all group"
+            >
+              <i
+                class="fa-regular fa-file-pdf text-lg group-hover:animate-bounce-subtle"
+              ></i>
+              <span>Download CV</span>
+              <span class="text-xs text-white/60 font-normal"
+                >· ATS Optimized · Updated July 2026 · PDF</span
+              >
+              <i
+                class="fa-solid fa-arrow-down text-sm group-hover:translate-y-1 transition-transform"
+              ></i>
+            </a>
+            <p class="text-[10px] text-zinc-500 text-center -mt-1">
+              <i class="fa-regular fa-circle-check text-green-400 mr-1"></i> ATS
+              Friendly · 2.4 MB
+            </p>
+          </div>
+
+          <!-- ===== RIGHT COLUMN: Contact Form ===== -->
+          <div class="lg:col-span-7 reveal delay-200">
+            <div
+              class="glass-card p-8 md:p-10"
+              style="--card-glow: rgba(99, 102, 241, 0.08)"
+            >
+              <div class="flex items-center gap-3 mb-2">
+                <div
+                  class="w-10 h-10 rounded-xl bg-brand-accent1/10 border border-brand-accent1/20 flex items-center justify-center"
+                >
+                  <i
+                    class="fa-solid fa-pen-to-square text-brand-accent1 text-lg"
+                  ></i>
+                </div>
+                <h3 class="text-2xl font-bold text-white">Send a Message</h3>
+              </div>
+              <p class="text-zinc-400 text-sm mb-8 ml-14">
+                I'll get back to you within
+                <span class="text-white font-medium">24 hours</span>.
+              </p>
+
+              <!-- ===== Web3Forms Integration ===== -->
+              <form
+                id="contactForm"
+                action="https://api.web3forms.com/submit"
+                method="POST"
+                class="space-y-5"
+              >
+                <!-- Access Key (Web3Forms) -->
+                <input
+                  type="hidden"
+                  name="access_key"
+                  value="YOUR_WEB3FORMS_ACCESS_KEY"
+                />
+                <input
+                  type="hidden"
+                  name="subject"
+                  value="New Message from Portfolio Contact Form"
+                />
+                <input
+                  type="hidden"
+                  name="from_name"
+                  value="Portfolio Contact"
+                />
+
+                <!-- Honeypot -->
+                <input
+                  type="checkbox"
+                  name="botcheck"
+                  class="hidden"
+                  style="display: none"
+                />
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                  <!-- Full Name -->
+                  <div class="form-group mb-0">
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      class="form-input"
+                      placeholder="John Doe"
+                      required
+                    />
+                    <label for="name" class="form-label">
+                      <i class="fa-regular fa-user mr-1.5"></i> Full Name
+                    </label>
+                  </div>
+                  <!-- Email -->
+                  <div class="form-group mb-0">
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      class="form-input"
+                      placeholder="john@example.com"
+                      required
+                    />
+                    <label for="email" class="form-label">
+                      <i class="fa-regular fa-envelope mr-1.5"></i> Email
+                      Address
+                    </label>
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                  <!-- Company -->
+                  <div class="form-group mb-0">
+                    <input
+                      type="text"
+                      id="company"
+                      name="company"
+                      class="form-input"
+                      placeholder="Company Name (Optional)"
+                    />
+                    <label for="company" class="form-label">
+                      <i class="fa-regular fa-building mr-1.5"></i> Company
+                    </label>
+                  </div>
+                  <!-- Subject -->
+                  <div class="form-group mb-0">
+                    <input
+                      type="text"
+                      id="subject"
+                      name="subject"
+                      class="form-input"
+                      placeholder="Project Inquiry / Collaboration"
+                      required
+                    />
+                    <label for="subject" class="form-label">
+                      <i class="fa-regular fa-tag mr-1.5"></i> Subject
+                    </label>
+                  </div>
+                </div>
+
+                <!-- Message -->
+                <div class="form-group">
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows="5"
+                    class="form-input resize-none"
+                    placeholder="Tell me about your project, timeline, and goals..."
+                    required
+                  ></textarea>
+                  <label for="message" class="form-label">
+                    <i class="fa-regular fa-comment mr-1.5"></i> Message
+                  </label>
+                </div>
+
+                <!-- Submit Button -->
+                <button
+                  type="submit"
+                  id="submitBtn"
+                  class="btn-submit py-4 rounded-xl text-white font-semibold flex items-center justify-center gap-3 group"
+                >
+                  <span id="btnText">Send Message</span>
+                  <i
+                    id="btnIcon"
+                    class="fa-solid fa-paper-plane text-sm group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300"
+                  ></i>
+                  <div id="btnLoader" class="loader"></div>
+                </button>
+
+                <!-- Form Status -->
+                <div
+                  id="formStatus"
+                  class="text-center text-sm font-medium hidden"
+                >
+                  <i class="fa-regular fa-circle-check text-green-400 mr-2"></i>
+                  <span id="formStatusText">Message sent successfully!</span>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== Social Icons (Full Width) ===== -->
+        <div
+          class="flex flex-wrap items-center justify-center gap-4 md:gap-6 mt-16 pt-8 border-t border-white/5 reveal"
+        >
+          <span
+            class="text-sm text-zinc-500 font-medium tracking-wider uppercase mr-2"
+            >Find me on</span
+          >
+          <a
+            href="https://github.com/naderwddah"
+            target="_blank"
+            class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-zinc-400 hover:text-white hover:border-white/30 hover:bg-white/10 transition-all group"
+          >
+            <i
+              class="fa-brands fa-github text-xl group-hover:scale-110 transition-transform"
+            ></i>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/naderwaddah/"
+            target="_blank"
+            class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-zinc-400 hover:text-[#0a66c2] hover:border-[#0a66c2]/30 hover:bg-white/10 transition-all group"
+          >
+            <i
+              class="fa-brands fa-linkedin text-xl group-hover:scale-110 transition-transform"
+            ></i>
+          </a>
+          <a
+            href="https://wa.me/966560889123"
+            target="_blank"
+            class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-zinc-400 hover:text-[#25D366] hover:border-[#25D366]/30 hover:bg-white/10 transition-all group"
+          >
+            <i
+              class="fa-brands fa-whatsapp text-xl group-hover:scale-110 transition-transform"
+            ></i>
+          </a>
+          <a
+            href="mailto:naderwadah71@gmail.com"
+            class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-zinc-400 hover:text-[#ea4335] hover:border-[#ea4335]/30 hover:bg-white/10 transition-all group"
+          >
+            <i
+              class="fa-solid fa-envelope text-xl group-hover:scale-110 transition-transform"
+            ></i>
+          </a>
+          <!-- تم إزالة X (Twitter) كما طلبت -->
+        </div>
+
+        <!-- ===== Closing Note ===== -->
+        <div class="text-center mt-12 reveal">
+          <p class="text-zinc-400 text-sm max-w-2xl mx-auto leading-relaxed">
+            Whether you're hiring a
+            <span class="text-white font-medium">Full Stack Developer</span>,
+            building a new product, or looking for a
+            <span class="text-white font-medium"
+              >long-term technical partner</span
+            >, I'd be happy to discuss how I can contribute to your project.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!--! ============================================================ -->
+    <!-- ===== FAQ SECTION (قبل الـ Footer) ===== -->
+    <!-- !============================================================ -->
+    <section
+      id="faq"
+      class="relative py-16 md:py-20 w-full overflow-hidden bg-brand-900/20"
+    >
+      <div class="relative z-10 max-w-4xl mx-auto px-6 lg:px-8">
+        <div class="text-center mb-12 reveal">
+          <div
+            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-4"
+          >
+            <i
+              class="fa-solid fa-circle-question text-brand-accent1 text-xs"
+            ></i>
+            <span
+              class="text-xs font-semibold uppercase tracking-widest text-zinc-300"
+              >FAQ</span
+            >
+          </div>
+          <h2 class="text-2xl md:text-3xl font-bold text-white mb-2">
+            Frequently Asked Questions
+          </h2>
+          <p class="text-zinc-400 text-sm max-w-2xl mx-auto">
+            Quick answers to common questions about working with me.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 reveal">
+          <!-- FAQ 1 -->
+          <div
+            class="glass-card p-5 hover:border-brand-accent1/20 transition-all group"
+          >
+            <div class="flex items-start gap-3">
+              <div
+                class="w-8 h-8 rounded-lg bg-brand-accent1/10 border border-brand-accent1/20 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform"
+              >
+                <i class="fa-solid fa-globe text-brand-accent1 text-sm"></i>
+              </div>
+              <div>
+                <h4 class="text-sm font-semibold text-white mb-0.5">
+                  Can you work remotely?
+                </h4>
+                <p class="text-sm text-zinc-400">
+                  Yes. I work fully remote and collaborate effectively with
+                  distributed teams across time zones.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div
+            class="glass-card p-5 hover:border-green-500/20 transition-all group"
+          >
+            <div class="flex items-start gap-3">
+              <div
+                class="w-8 h-8 rounded-lg bg-green-500/10 border border-green-500/20 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform"
+              >
+                <i class="fa-solid fa-clock text-green-400 text-sm"></i>
+              </div>
+              <div>
+                <h4 class="text-sm font-semibold text-white mb-0.5">
+                  Are you available for full-time?
+                </h4>
+                <p class="text-sm text-zinc-400">
+                  Yes. I'm open to full-time positions, freelance projects, and
+                  long-term collaborations.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div
+            class="glass-card p-5 hover:border-brand-accent4/20 transition-all group"
+          >
+            <div class="flex items-start gap-3">
+              <div
+                class="w-8 h-8 rounded-lg bg-brand-accent4/10 border border-brand-accent4/20 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform"
+              >
+                <i class="fa-solid fa-code text-brand-accent4 text-sm"></i>
+              </div>
+              <div>
+                <h4 class="text-sm font-semibold text-white mb-0.5">
+                  What technologies do you specialize in?
+                </h4>
+                <p class="text-sm text-zinc-400">
+                  Flutter, PHP, JavaScript, C#, MySQL, IoT (ESP32/Arduino), and
+                  full-stack system architecture.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div
+            class="glass-card p-5 hover:border-amber-400/20 transition-all group"
+          >
+            <div class="flex items-start gap-3">
+              <div
+                class="w-8 h-8 rounded-lg bg-amber-500/10 border border-amber-500/20 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform"
+              >
+                <i class="fa-solid fa-microchip text-amber-400 text-sm"></i>
+              </div>
+              <div>
+                <h4 class="text-sm font-semibold text-white mb-0.5">
+                  Do you work on IoT projects?
+                </h4>
+                <p class="text-sm text-zinc-400">
+                  Yes. I have experience with ESP32, Arduino, PLC, and building
+                  complete IoT-integrated systems.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 5 -->
+          <div
+            class="glass-card p-5 hover:border-pink-400/20 transition-all group"
+          >
+            <div class="flex items-start gap-3">
+              <div
+                class="w-8 h-8 rounded-lg bg-pink-500/10 border border-pink-500/20 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform"
+              >
+                <i
+                  class="fa-solid fa-mobile-screen-button text-pink-400 text-sm"
+                ></i>
+              </div>
+              <div>
+                <h4 class="text-sm font-semibold text-white mb-0.5">
+                  Can you build mobile apps?
+                </h4>
+                <p class="text-sm text-zinc-400">
+                  Yes. I specialize in Flutter for cross-platform mobile
+                  applications with native-like performance.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 6 -->
+          <div
+            class="glass-card p-5 hover:border-purple-400/20 transition-all group"
+          >
+            <div class="flex items-start gap-3">
+              <div
+                class="w-8 h-8 rounded-lg bg-purple-500/10 border border-purple-500/20 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform"
+              >
+                <i class="fa-solid fa-handshake text-purple-400 text-sm"></i>
+              </div>
+              <div>
+                <h4 class="text-sm font-semibold text-white mb-0.5">
+                  How can we get started?
+                </h4>
+                <p class="text-sm text-zinc-400">
+                  Send me a message using the form above. I'll respond within 24
+                  hours to discuss your project.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ============================================================ -->
+    <!--                         FOOTER                                -->
+    <!-- ============================================================ -->
+    <footer
+      id="footer"
+      class="relative w-full bg-brand-900/80 border-t border-white/5 overflow-hidden"
+    >
+      <!-- Ambient Glow -->
+      <div
+        class="ambient-glow"
+        style="
+          bottom: -20%;
+          left: 10%;
+          width: 40vw;
+          height: 40vw;
+          background: #6366f1;
+          opacity: 0.04;
+        "
+      ></div>
+
+      <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 py-16 md:py-20">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
+          <!-- ===== Column 1: Identity & Bio (5 cols) ===== -->
+          <div class="md:col-span-5 space-y-4">
+            <a
+              href="#hero"
+              class="inline-flex items-center gap-3 group"
+              aria-label="Go to Home"
+            >
+              <div
+                class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-accent1 to-brand-accent2 flex items-center justify-center shadow-[0_0_20px_rgba(99,102,241,0.3)] group-hover:shadow-[0_0_30px_rgba(168,85,247,0.5)] transition-all"
+              >
+                <span class="text-sm font-extrabold text-white">N</span>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-white leading-tight">
+                  Nader Al-Qayadi
+                </h3>
+                <p class="text-xs text-zinc-400">
+                  Software Engineer &amp; Full Stack Developer
+                </p>
+              </div>
+            </a>
+
+            <p class="text-sm text-zinc-400 leading-relaxed max-w-sm">
+              Building complete, integrated software solutions — from intuitive
+              interfaces to robust backend systems and IoT hardware.
+            </p>
+
+            <!-- Social Links -->
+            <div class="flex items-center gap-3 pt-2">
+              <a
+                href="https://github.com/naderwddah"
+                target="_blank"
+                class="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-zinc-400 hover:text-white hover:border-white/30 hover:bg-white/10 transition-all group"
+                aria-label="GitHub Profile"
+              >
+                <i
+                  class="fa-brands fa-github text-sm group-hover:scale-110 transition-transform"
+                ></i>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/naderwaddah/"
+                target="_blank"
+                class="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-zinc-400 hover:text-[#0a66c2] hover:border-[#0a66c2]/30 hover:bg-white/10 transition-all group"
+                aria-label="LinkedIn Profile"
+              >
+                <i
+                  class="fa-brands fa-linkedin text-sm group-hover:scale-110 transition-transform"
+                ></i>
+              </a>
+              <a
+                href="https://wa.me/966560889123"
+                target="_blank"
+                class="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-zinc-400 hover:text-[#25D366] hover:border-[#25D366]/30 hover:bg-white/10 transition-all group"
+                aria-label="WhatsApp"
+              >
+                <i
+                  class="fa-brands fa-whatsapp text-sm group-hover:scale-110 transition-transform"
+                ></i>
+              </a>
+              <a
+                href="mailto:naderwadah71@gmail.com"
+                class="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-zinc-400 hover:text-[#ea4335] hover:border-[#ea4335]/30 hover:bg-white/10 transition-all group"
+                aria-label="Email"
+              >
+                <i
+                  class="fa-solid fa-envelope text-sm group-hover:scale-110 transition-transform"
+                ></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- ===== Column 2: Quick Links (3 cols) ===== -->
+          <div class="md:col-span-3">
+            <h4
+              class="text-xs font-semibold text-zinc-500 uppercase tracking-wider mb-4"
+            >
+              Navigation
+            </h4>
+            <ul class="space-y-2.5">
+              <li>
+                <a
+                  href="#hero"
+                  class="text-sm text-zinc-400 hover:text-white transition-colors"
+                  aria-label="Home"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#about"
+                  class="text-sm text-zinc-400 hover:text-white transition-colors"
+                  aria-label="About"
+                  >About</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#projects"
+                  class="text-sm text-zinc-400 hover:text-white transition-colors"
+                  aria-label="Projects"
+                  >Projects</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#skills"
+                  class="text-sm text-zinc-400 hover:text-white transition-colors"
+                  aria-label="Expertise"
+                  >Expertise</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#journey"
+                  class="text-sm text-zinc-400 hover:text-white transition-colors"
+                  aria-label="Experience"
+                  >Experience</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#achievements"
+                  class="text-sm text-zinc-400 hover:text-white transition-colors"
+                  aria-label="Certifications"
+                  >Certifications</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#faq"
+                  class="text-sm text-zinc-400 hover:text-white transition-colors"
+                  aria-label="FAQ"
+                  >FAQ</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#contact"
+                  class="text-sm text-zinc-400 hover:text-white transition-colors"
+                  aria-label="Contact"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- ===== Column 3: Contact & Back to Top (4 cols) ===== -->
+          <div class="md:col-span-4 flex flex-col items-start md:items-end">
+            <h4
+              class="text-xs font-semibold text-zinc-500 uppercase tracking-wider mb-4"
+            >
+              Let's Connect
+            </h4>
+            <div class="space-y-2">
+              <a
+                href="mailto:naderwadah71@gmail.com"
+                class="text-sm text-zinc-400 hover:text-white transition-colors flex items-center gap-2"
+                aria-label="Send email"
+              >
+                <i class="fa-regular fa-envelope text-xs text-zinc-500"></i>
+                naderwadah71@gmail.com
+              </a>
+              <a
+                href="https://wa.me/966560889123"
+                target="_blank"
+                class="text-sm text-zinc-400 hover:text-white transition-colors flex items-center gap-2"
+                aria-label="WhatsApp"
+              >
+                <i class="fa-regular fa-message text-xs text-zinc-500"></i>
+                +966 560 889 123
+              </a>
+              <p class="text-sm text-zinc-500 flex items-center gap-2">
+                <i class="fa-regular fa-clock text-xs text-zinc-500"></i>
+                GMT+3 · Available
+              </p>
+            </div>
+
+            <!-- Back to Top Button -->
+            <button
+              id="backToTop"
+              class="mt-4 inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/5 border border-white/10 text-sm text-zinc-400 hover:text-white hover:border-white/30 hover:bg-white/10 transition-all group"
+              aria-label="Back to Top"
+            >
+              <i
+                class="fa-solid fa-arrow-up text-xs group-hover:-translate-y-1 transition-transform"
+              ></i>
+              Back to Top
+            </button>
+          </div>
+        </div>
+
+        <!-- ===== Bottom Bar ===== -->
+        <div
+          class="mt-12 pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4"
+        >
+          <p class="text-xs text-zinc-500">
+            &copy; <span id="currentYear"></span>
+            <span class="text-zinc-400 font-medium">Nader Al-Qayadi</span>.
+            Designed &amp; Developed by Nader Waddah using HTML, Tailwind CSS
+            &amp; JavaScript.
+          </p>
+          <p class="text-[10px] text-zinc-600">
+            Built with
+            <i
+              class="fa-solid fa-code text-brand-accent1 text-[10px]"
+              aria-hidden="true"
+            ></i>
+            and
+            <i
+              class="fa-solid fa-coffee text-amber-400 text-[10px]"
+              aria-hidden="true"
+            ></i>
+          </p>
+        </div>
+      </div>
+    </footer>
+    <!-- ! -->
+    <!-- ============================================================ -->
+    <!--                       JAVASCRIPT                              -->
+    <!-- ============================================================ -->
+  </body>
+</html>
+X
